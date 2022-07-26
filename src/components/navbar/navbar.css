@@ -1,0 +1,35 @@
+.nb719Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.nb267NavbarRightContainer {
+    width: 35%;
+}
+
+.nb341Input {
+    padding: 5px 10px;
+    border: thin solid #d4d4d4;
+    font-size: 16px;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+}
+
+::placeholder {
+    color: rgb(206, 206, 206);
+    font-weight: 200;
+}
+
+.nb192Breadcrumb {}
+
+.nb172BreadcrumbItem {
+    color: #0d6efd;
+    cursor: pointer;
+}
+
+.nb278active {
+    color: #6c757d;
+}
