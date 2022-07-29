@@ -1,9 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import DashboardItems from "../../components/dashboardItems/dashboardItems";
+import { globalType } from "../../types/interfaces";
 
 const HomePage = () => {
-  const { rootFolderDetails } = useSelector((state: any) => ({
+  const { rootFolderDetails } = useSelector((state: globalType) => ({
     rootFolderDetails: state.fileFolder,
   }));
 

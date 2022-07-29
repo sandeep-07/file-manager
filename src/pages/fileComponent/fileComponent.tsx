@@ -30,7 +30,7 @@ const FileComponent = () => {
     
     setLoading(false);
   };
-  //   getPhotos();
+
   useEffect(() => {
     getPhotos();
   }, []);

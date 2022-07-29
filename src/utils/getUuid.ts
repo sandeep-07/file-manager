@@ -7,4 +7,3 @@ export const getUuid = () => {
   return str;
 };
 
-export {};

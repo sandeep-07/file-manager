@@ -16,7 +16,7 @@ import "./App.css";
 const App = () => {
   const data = useSelector((state: any) => state.fileFolder);
   const [open, setOpen] = useState(false);
-
+console.log(open);
   return (
     <div className="app201AppComp">
       {open && <Modal setIsOpen={setOpen} />}

@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { dataType } from "../../types/interfaces";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
 import ContextMenu from "../contextMenu/contextMenu";
 import homeFolder from "../../assets/homeFolder.png";
@@ -15,14 +16,11 @@ import folder from "../../assets/folder.png";
 import "./dashboardItems.css";
 
 const DashboardItems = ({ items }: propTypes) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [itemRightClicked, setItemRightClicked] = useState("");
-  const [coordinates, setCoordinates] = useState({
-    x: 0,
-    y: 0,
-  });
+  const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener("click", () => {
@@ -113,7 +111,7 @@ const DashboardItems = ({ items }: propTypes) => {
 };
 
 type propTypes = {
-  items: any;
+  items: dataType[];
 };
 
 export default DashboardItems;

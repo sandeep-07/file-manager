@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { dataType } from "../../types/interfaces";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
 import { setQuery } from "../../redux/actionCreators/searchActionCreator";
 import "./navbar.css";
@@ -11,14 +12,11 @@ const Navbar = ({ setIsOpen }: propTypes) => {
   const navigate = useNavigate();
   // const [query, setQueryString] = useState("");
 
-  const stringQuery = useSelector((state: any) => state.search);
-  console.log(stringQuery);
-
   const currentFolder = useSelector((state: any) => state.currentFolder);
   const data = useSelector((state: any) => state.fileFolder);
 
-  let getCurrentObject = {} as any;
-  const eachRecursive = (obj: any, id: string) => {
+  let getCurrentObject = {} as dataType;
+  const eachRecursive = (obj: dataType, id: string) => {
     if (obj.id === id) {
       {
         getCurrentObject = obj;
@@ -45,7 +43,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
     <div className="nb719Navbar">
       <div className="nb527NavbarLeftContainer">
         <div className="nb192Breadcrumb">
-          {getCurrentObject?.path?.map((item: any, index: number) => (
+          {getCurrentObject?.path?.map((item:any , index: number) => (
             <span
               key={index}
               className={`nb172BreadcrumbItem ${
@@ -65,7 +63,6 @@ const Navbar = ({ setIsOpen }: propTypes) => {
         ></i>
 
         <input
-          onChange={(e) => dispatch(setQuery(e.target.value))}
           type="text"
           className="nb452Icon nb341Input"
           placeholder="Search"
