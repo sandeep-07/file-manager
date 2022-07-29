@@ -1,7 +1,8 @@
-import * as types from "../actionTypes/fileFolderActionTypes";
+import * as types from "../actionTypes/actionTypes";
 const intitialState = {
   name: "root",
   id: "root",
+  isAdmin: true,
   path: [
     {
       name: "root",
@@ -15,6 +16,7 @@ const intitialState = {
       id: "iiebjdicdcfiejegecff",
       isFolder: true,
       children: [],
+      isAdmin: true,
       path: [
         {
           name: "root",
@@ -31,6 +33,7 @@ const intitialState = {
       id: "bgfbbebifhddaciacjec",
       isFolder: true,
       children: [],
+      isAdmin: true,
       path: [
         {
           name: "root",
@@ -46,6 +49,7 @@ const intitialState = {
       name: "Downloads",
       id: "jgjkhihjeeacdffggibk",
       isFolder: true,
+      isAdmin: true,
       children: [],
       path: [
         {
@@ -62,6 +66,7 @@ const intitialState = {
       name: "Documents",
       id: "bkbcecfjfhkgaefacjbj",
       isFolder: true,
+      isAdmin: true,
       children: [],
       path: [
         {
@@ -78,6 +83,7 @@ const intitialState = {
       name: "Recycle Bin",
       id: "cfigkiedijfifahicekb",
       isFolder: true,
+      isAdmin: true,
       children: [],
       path: [
         {
@@ -95,9 +101,10 @@ const intitialState = {
 const addRecursive = (obj: any, parent: any, id: string, item: any) => {
   if (obj.id === id) {
     {
-      console.log(obj, parent,id);
+      console.log(obj, parent, id);
       const alreadyPresentInParent = obj?.children?.find(
-        (child: any) => child.name === item.name && child.isFolder===item.isFolder
+        (child: any) =>
+          child.name === item.name && child.isFolder === item.isFolder
       );
       if (alreadyPresentInParent) {
         alert("already present");

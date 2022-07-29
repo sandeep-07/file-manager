@@ -1,4 +1,4 @@
-import * as types from "../actionTypes/fileFolderActionTypes";
+import * as types from "../actionTypes/actionTypes";
 const initilState = "root";
 const currentFolderReducer = (state = initilState, action: any) => {
   switch (action.type) {

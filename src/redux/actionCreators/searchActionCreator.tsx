@@ -1,8 +1,8 @@
 import * as types from "../actionTypes/actionTypes";
 
-export const changeFolder = (payload: any) => {
+export const setQuery = (payload: any) => {
   return {
-    type: types.CHANGE_FOLDER,
+    type: types.SET_QUERY,
     payload,
   };
 };

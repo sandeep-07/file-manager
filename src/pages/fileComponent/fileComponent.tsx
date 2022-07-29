@@ -11,15 +11,7 @@ const FileComponent = () => {
   const [page, setPage] = useState(1);
 
   const CLIENT_ID = "S3JbSCnpwZos07ZknjSnOVvPHN7pOcriBHqn496TSqg";
-  //   const qry = "office";
-
-  //   useEffect(() => {
-  //     setLoading(true);
-
-  //     };
-  //     getPhotos();
-  //   }, []);
-
+  
   const getPhotos = async () => {
     const response = await fetch(
       `https://api.unsplash.com/search/photos?query=${query}&client_id=${CLIENT_ID}&page=${page}&per_page=20&orientation=landscape`

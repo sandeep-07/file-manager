@@ -1,46 +1,55 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
+import { setQuery } from "../../redux/actionCreators/searchActionCreator";
 import "./navbar.css";
-const Navbar = () => {
+
+const Navbar = ({ setIsOpen }: propTypes) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  // const [query, setQueryString] = useState("");
+
+  const stringQuery = useSelector((state: any) => state.search);
+  console.log(stringQuery);
+
   const currentFolder = useSelector((state: any) => state.currentFolder);
   const data = useSelector((state: any) => state.fileFolder);
-  let thisObj = {} as any;
-  const eachRecursive = (obj: any, id: any) => {
+
+  let getCurrentObject = {} as any;
+  const eachRecursive = (obj: any, id: string) => {
     if (obj.id === id) {
       {
-        thisObj = obj;
+        getCurrentObject = obj;
         return obj;
       }
     }
-    for (var k in obj.children) {
+    for (let k in obj.children) {
       eachRecursive(obj.children[k], id);
     }
   };
-  const dispatch = useDispatch();
   eachRecursive(data, currentFolder);
-  //   console.log("kiske andar ho", thisObj.path);
+
   const handleClick = (link: string) => {
     if (link === "") {
       navigate("/");
       dispatch(changeFolder("root"));
       return;
     }
-
     dispatch(changeFolder(link));
     navigate("/" + link);
   };
+
   return (
     <div className="nb719Navbar">
       <div className="nb527NavbarLeftContainer">
         <div className="nb192Breadcrumb">
-          {thisObj?.path?.map((item: any, index: number) => (
+          {getCurrentObject?.path?.map((item: any, index: number) => (
             <span
               key={index}
               className={`nb172BreadcrumbItem ${
-                index === thisObj.path.length - 1 ? "nb278active" : ""
+                index === getCurrentObject.path.length - 1 ? "nb278active" : ""
               }`}
               onClick={() => handleClick(item.link)}
             >
@@ -50,11 +59,25 @@ const Navbar = () => {
         </div>
       </div>
       <div className="nb267NavbarRightContainer">
-        {/* <input className="nb341Input" placeholder="Search for anything" /> */}
-        <input type="text" className="nb452Icon nb341Input" placeholder="Search" />
+        <i
+          className="fa-solid fa-plus nb361OpenModalIcon"
+          onClick={() => setIsOpen(true)}
+        ></i>
+
+        <input
+          onChange={(e) => dispatch(setQuery(e.target.value))}
+          type="text"
+          className="nb452Icon nb341Input"
+          placeholder="Search"
+        />
       </div>
     </div>
   );
+};
+
+type propTypes = {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen: boolean;
 };
 
 export default Navbar;

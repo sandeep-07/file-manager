@@ -1,4 +1,4 @@
-import * as types from "../actionTypes/fileFolderActionTypes";
+import * as types from "../actionTypes/actionTypes";
 
 export const createItem = (payload: any) => {
   return {

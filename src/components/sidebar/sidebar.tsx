@@ -1,46 +1,61 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
+import homeFolder from "../../assets/homeFolder.png";
+import desktopFolder from "../../assets/desktopFolder.png";
+import downloads from "../../assets/downloads.png";
+import documents from "../../assets/documents.png";
+import bin from "../../assets/bin.png";
+
 import "./sidebar.css";
-import home from "../../assets/home.png";
-import { createItem } from "../../redux/actionCreators/fileFolderActionCreators";
+
 type propTypes = {
   data: any;
 };
+
+const getFolderIcon = (data: any) => {
+  const { name } = data;
+  switch (name) {
+    case "Home":
+      return <img className="sb828ItemImage" src={homeFolder} alt="home" />;
+    case "Desktop":
+      return (
+        <img className="sb828ItemImage" src={desktopFolder} alt="desktop" />
+      );
+    case "Downloads":
+      return <img className="sb828ItemImage" src={downloads} alt="downloads" />;
+    case "Documents":
+      return <img className="sb828ItemImage" src={documents} alt="documents" />;
+    case "Recycle Bin":
+      return <img className="sb828ItemImage" src={bin} alt="bin" />;
+
+    default:
+      return <></>;
+  }
+};
+
 function Sidebar({ data }: propTypes) {
-  const [expand, setExpand] = React.useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleClick = (data: any) => {
+    if (!data.isFolder) {
+      navigate(`/file/${data.name}/${data.id}`);
+      return;
+    }
+    dispatch(changeFolder(data.id));
+    navigate(`/${data.id}`);
+  };
 
   return (
     <div className="">
       {data?.isFolder === true ? (
         <>
-          <div className="sb279Item">
+          <div className="sb279Item" onClick={() => handleClick(data)}>
             <div className="sb682ImageContainer">
-              {data.name === "Home" && (
-                <img src={home} className="sb828ItemImage" />
-              )}
-              {data.name === "Desktop" && (
-                <img
-                  src="https://img.icons8.com/fluency/48/000000/desktop.png"
-                  className="sb828ItemImage"
-                />
-              )}
-              {data.name === "Downloads" && (
-                <img
-                  className="sb828ItemImage"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAjElEQVRIie2UQQ5AMBBFfx2rYTPX6Jor2NbOFXSt12DDudiJROgvIhHeuvPeJE0LvB3FHhTXjoDSADABQ1+YjJlLInbRq61SdioicI4/8Aeus/vQxPkSQE1abJebKipARw7kwUAwEpBTgd0IIacDmwgpj0Yab6Xx9nbxt1kuWZyf7hR3hVHAA1/F+5kBHDwnkio/q6YAAAAASUVORK5CYII="
-                />
-              )}
-              {data.name === "Documents" && (
-                <img
-                  className="sb828ItemImage"
-                  src="https://img.icons8.com/fluency/96/000000/documents.png"
-                />
-              )}
-              {data.name === "Recycle Bin" && (
-                <img
-                  className="sb828ItemImage"
-                  src="https://img.icons8.com/color/96/000000/recycle-bin.png"
-                />
-              )}
+              {data.isAdmin === true && getFolderIcon(data)}
             </div>
             <div className="sb818ItemText">{data.name}</div>
           </div>
@@ -53,10 +68,17 @@ function Sidebar({ data }: propTypes) {
           </div>
         </>
       ) : (
-        <div className="sb279Item">{data.name}</div>
+        <div
+          className="sb279Item"
+          onClick={() => navigate(`/file/${data.name}/${data.id}`)}
+        >
+          {data.name}
+        </div>
       )}
     </div>
   );
 }
+
+
 
 export default Sidebar;

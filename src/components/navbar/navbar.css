@@ -7,6 +7,10 @@
 
 .nb267NavbarRightContainer {
     width: 35%;
+    display: flex;
+    flex-direction: row;
+    width: 37%;
+    justify-content: space-around;
 }
 
 .nb341Input {
@@ -15,15 +19,13 @@
     font-size: 16px;
     outline: none;
     border-radius: 10px;
-    width: 100%;
+    width: 70%;
 }
 
 ::placeholder {
     color: rgb(206, 206, 206);
     font-weight: 200;
 }
-
-.nb192Breadcrumb {}
 
 .nb172BreadcrumbItem {
     color: #0d6efd;
@@ -38,4 +40,11 @@
     padding-left: 25px;
     background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
     background-size: 20px;
+}
+.nb361OpenModalIcon{
+    border: 2px solid rgb(83, 83, 83);
+    /* padding: 20px; */
+    cursor: pointer;
+    align-self: center;
+    padding: 10px;
 }
