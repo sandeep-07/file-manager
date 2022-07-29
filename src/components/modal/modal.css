@@ -1,6 +1,6 @@
 /* @src/components/Modal.module.css */
 
-.darkBG {
+.ml900DarkBG {
     background-color: rgba(0, 0, 0, 0.2);
     width: 100vw;
     height: 100vh;
@@ -11,17 +11,15 @@
     position: absolute;
 }
 
-.centered {
+.ml019Centered {
     position: fixed;
     top: 20%;
     left: 50%;
-    /* transform: translate(-50%, -50%); */
 }
 
-.modal {
+.ml287Modal {
     padding: 20px 0px;
     width: 390px;
-    /* height: 170px; */
     background: white;
     color: white;
     z-index: 10;
@@ -30,7 +28,7 @@
     padding-bottom: 50px;
 }
 
-.modalHeader {
+.ml100ModalHeader {
     height: 33px;
     background: white;
     overflow: hidden;
@@ -38,7 +36,7 @@
     border-top-right-radius: 16px;
 }
 
-.heading {
+.ml001Heading {
     margin: 0;
     /* padding: 15px 0; */
     color: #2c3e50;
@@ -47,7 +45,7 @@
     text-align: center;
 }
 
-.fileOrFolder {
+.ml180FileOrFolder {
     /* background-color: aqua; */
     display: flex;
     justify-content: center;
@@ -55,35 +53,35 @@
     margin-top: 15px;
 }
 
-.btn {
+.ml094Btn {
     border: 1px solid #d4d4d4;
     color: #d4d4d4;
     padding: 8px 23px;
     cursor: pointer;
 }
 
-.fileButton {
+.ml291FolderButton {
     border-radius: 10px 0px 0px 10px;
 }
 
-.folderButton {
+.ml294FileButton {
     border-radius: 0px 10px 10px 0;
 }
 
-.activeBtn {
+.ml129ActiveBtn {
     background-color: #4ab8ff;
     color: white;
     border: none;
 }
 
-.modalContent {
+.ml291ModalContent {
     padding: 10px;
     font-size: 14px;
     color: #2c3e50;
     text-align: center;
 }
 
-.modalInput {
+.ml501ModalInput {
     padding: 15px 10px;
     width: 78%;
     border: thin solid #d4d4d4;
@@ -99,19 +97,19 @@
     color: rgb(206, 206, 206);
 }
 
-.modalActions {
+.ml481ModalActions {
     bottom: 2px;
     margin-bottom: 10px;
     width: 100%;
 }
 
-.actionsContainer {
+.ml978ActionsContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.closeBtn {
+.ml019CloseBtn {
     cursor: pointer;
     font-weight: 500;
     padding: 4px 8px;
@@ -130,7 +128,7 @@
     margin-right: -7px; */
 }
 
-.createBtn {
+.ml012createBtn {
     width: 74%;
     padding: 13px 9px;
     border-radius: 9px;
@@ -142,7 +140,7 @@
     cursor: pointer;
 }
 
-.createBtn:hover {
+.ml012createBtn:hover {
     box-shadow: 0 5px 5px -5px rgba(73, 73, 73, 0.6);
     transform: translateY(-1px);
 }

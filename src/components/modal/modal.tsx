@@ -22,61 +22,73 @@ const Modal = ({ setIsOpen }: props) => {
 
     dispatch(createItem({ createInside: createInside, item: data }));
   };
+  const handleCreateFile = () => {
+    const data = {
+      name: itemName,
+      id: getUuid(),
+      isFolder: false,
+      children: [],
+    };
+
+    dispatch(createItem({ createInside: createInside, item: data }));
+  };
 
   return (
     <>
-      <div className="darkBG" onClick={() => setIsOpen(false)} />
-      <div className="centered">
-        <div className="modal">
-          <div className="modalHeader">
-            <h2 className="heading">Create New</h2>
+      <div className="ml900DarkBG" onClick={() => setIsOpen(false)} />
+      <div className="ml019Centered">
+        <div className="ml287Modal">
+          <div className=".ml100ModalHeader">
+            <h2 className=".ml001Heading">Create New</h2>
           </div>
-          <button className="closeBtn" onClick={() => setIsOpen(false)}>
+          <button className="ml019CloseBtn" onClick={() => setIsOpen(false)}>
             <i className="fa-solid fa-xmark"></i>
           </button>
-          <div className="fileOrFolder">
+          <div className="ml180FileOrFolder">
             <span
               onClick={() => setShouldCreateFile(0)}
-              className={`btn fileButton ${
-                shouldCreateFile == 0 ? "activeBtn" : ""
+              className={`ml094Btn ml291FolderButton ${
+                shouldCreateFile == 0 ? "ml129ActiveBtn" : ""
               }`}
             >
               Folder
             </span>
             <span
               onClick={() => setShouldCreateFile(1)}
-              className={`btn folderButton ${
-                shouldCreateFile == 1 ? "activeBtn" : ""
+              className={`ml094Btn ml294FileButton ${
+                shouldCreateFile == 1 ? "ml129ActiveBtn" : ""
               }`}
             >
               File
             </span>
           </div>
-          <div className="modalContent">
+          <div className="ml291ModalContent">
             <input
-              className="modalInput"
+              className="ml501ModalInput"
               placeholder="Name"
               onChange={(e) => setItemName(e.target.value)}
             />
             <br />
             <input
-              className="modalInput"
+              className="ml501ModalInput"
               placeholder="Type"
               onChange={(e) => setType(e.target.value)}
             />
             <br />
             <input
-              className="modalInput"
+              className="ml501ModalInput"
               placeholder="Creator"
               onChange={(e) => setCreatorName(e.target.value)}
             />
           </div>
-          <div className="modalActions">
-            <div className="actionsContainer">
+          <div className="ml481ModalActions">
+            <div className="ml978ActionsContainer">
               {shouldCreateFile == 1 ? (
-                <button className="createBtn">Create File</button>
+                <button onClick={handleCreateFile} className="ml012createBtn">
+                  Create File
+                </button>
               ) : (
-                <button onClick={handleCreateFolder} className="createBtn">
+                <button onClick={handleCreateFolder} className="ml012createBtn">
                   Create Folder
                 </button>
               )}

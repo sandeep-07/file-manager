@@ -2,13 +2,107 @@ import * as types from "../actionTypes/fileFolderActionTypes";
 const intitialState = {
   name: "root",
   id: "root",
-  path: [{ name: "root", link: "" }],
+  path: [
+    {
+      name: "root",
+      link: "",
+    },
+  ],
   isFolder: true,
-  children: [],
+  children: [
+    {
+      name: "Home",
+      id: "iiebjdicdcfiejegecff",
+      isFolder: true,
+      children: [],
+      path: [
+        {
+          name: "root",
+          link: "",
+        },
+        {
+          name: "Home",
+          link: "iiebjdicdcfiejegecff",
+        },
+      ],
+    },
+    {
+      name: "Desktop",
+      id: "bgfbbebifhddaciacjec",
+      isFolder: true,
+      children: [],
+      path: [
+        {
+          name: "root",
+          link: "",
+        },
+        {
+          name: "Desktop",
+          link: "bgfbbebifhddaciacjec",
+        },
+      ],
+    },
+    {
+      name: "Downloads",
+      id: "jgjkhihjeeacdffggibk",
+      isFolder: true,
+      children: [],
+      path: [
+        {
+          name: "root",
+          link: "",
+        },
+        {
+          name: "Downloads",
+          link: "jgjkhihjeeacdffggibk",
+        },
+      ],
+    },
+    {
+      name: "Documents",
+      id: "bkbcecfjfhkgaefacjbj",
+      isFolder: true,
+      children: [],
+      path: [
+        {
+          name: "root",
+          link: "",
+        },
+        {
+          name: "Documents",
+          link: "bkbcecfjfhkgaefacjbj",
+        },
+      ],
+    },
+    {
+      name: "Recycle Bin",
+      id: "cfigkiedijfifahicekb",
+      isFolder: true,
+      children: [],
+      path: [
+        {
+          name: "root",
+          link: "",
+        },
+        {
+          name: "Recycle Bin",
+          link: "cfigkiedijfifahicekb",
+        },
+      ],
+    },
+  ],
 };
-const eachRecursive = (obj: any, id: string, item: any) => {
+const addRecursive = (obj: any, parent: any, id: string, item: any) => {
   if (obj.id === id) {
     {
+      console.log(obj, parent,id);
+      const alreadyPresentInParent = obj?.children?.find(
+        (child: any) => child.name === item.name && child.isFolder===item.isFolder
+      );
+      if (alreadyPresentInParent) {
+        alert("already present");
+        return;
+      }
       const pathTillParent = obj.path;
       const newPath = [...pathTillParent, { name: item.name, link: item.id }];
       const newItem = { ...item, path: newPath };
@@ -17,21 +111,22 @@ const eachRecursive = (obj: any, id: string, item: any) => {
     }
   }
   for (var k in obj.children) {
-    eachRecursive(obj.children[k], id, item);
+    addRecursive(obj.children[k], obj, id, item);
   }
 };
 
 const deleteRecursive = (obj: any, parent: any, id: string) => {
-  if (obj.id === id) {
+  if (obj?.id === id) {
     {
-      console.log(obj, parent, id);
-      const newChildren = parent.children.filter((item: any) => item.id !== id);
+      const newChildren = parent?.children.filter(
+        (item: any) => item.id !== id
+      );
       parent.children = newChildren;
       return;
     }
   }
   for (var k in obj.children) {
-    deleteRecursive(obj.children[k], obj, id);
+    if (obj && obj.children[k]) deleteRecursive(obj.children[k], obj, id);
   }
 };
 const fileFolderReducer = (state = intitialState, action: any) => {
@@ -39,13 +134,12 @@ const fileFolderReducer = (state = intitialState, action: any) => {
     case types.CREATE_ITEM:
       const { createInside, item } = action.payload;
       const newState = { ...state };
-      // console.log(createInside, item);
-      eachRecursive(newState, createInside, item);
+      addRecursive(newState, newState, createInside, item);
       return newState;
     case types.DELETE_ITEM:
       const deleteThis = action.payload;
       const newState2 = { ...state };
-      deleteRecursive(newState2, "", deleteThis);
+      deleteRecursive(newState2, state, deleteThis);
       return newState2;
   }
   return state;

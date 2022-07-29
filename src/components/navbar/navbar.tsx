@@ -50,7 +50,8 @@ const Navbar = () => {
         </div>
       </div>
       <div className="nb267NavbarRightContainer">
-        <input className="nb341Input" placeholder="Search for anything" />
+        {/* <input className="nb341Input" placeholder="Search for anything" /> */}
+        <input type="text" className="nb452Icon nb341Input" placeholder="Search" />
       </div>
     </div>
   );

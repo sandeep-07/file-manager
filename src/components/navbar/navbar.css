@@ -10,7 +10,7 @@
 }
 
 .nb341Input {
-    padding: 5px 10px;
+    padding: 9px 14px;
     border: thin solid #d4d4d4;
     font-size: 16px;
     outline: none;
@@ -32,4 +32,10 @@
 
 .nb278active {
     color: #6c757d;
+}
+
+.nb452Icon {
+    padding-left: 25px;
+    background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+    background-size: 20px;
 }
