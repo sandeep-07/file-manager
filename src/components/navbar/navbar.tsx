@@ -13,7 +13,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 
   const currentFolder = useSelector((state: any) => state.currentFolder);
   const data = useSelector((state: any) => state.fileFolder);
-
+  const searchQuery = useSelector((state: any) => state.search.query);
   let getCurrentObject = {} as dataType;
   const eachRecursive = (obj: dataType, id: string) => {
     if (obj.id === id) {
@@ -31,6 +31,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
   const handleClick = (link: string) => {
     if (link === "") {
       navigate("/");
+      dispatch(setQuery({ query: "", globalState: data }));
       dispatch(changeFolder("root"));
       return;
     }
@@ -44,7 +45,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
     <div className="nb719Navbar">
       <div className="nb527NavbarLeftContainer">
         <div className="nb192Breadcrumb">
-          {getCurrentObject?.path?.map((item:any , index: number) => (
+          {getCurrentObject?.path?.map((item: any, index: number) => (
             <span
               key={index}
               className={`nb172BreadcrumbItem ${
@@ -52,7 +53,9 @@ const Navbar = ({ setIsOpen }: propTypes) => {
               }`}
               onClick={() => handleClick(item.link)}
             >
-              {item.name} {` `}/{` `}
+              {item.name} {` `}
+              {`>  `}
+              {` `}
             </span>
           ))}
         </div>
@@ -67,7 +70,10 @@ const Navbar = ({ setIsOpen }: propTypes) => {
           type="text"
           className="nb452Icon nb341Input"
           placeholder="Search"
-          onChange={(e) => dispatch(setQuery({query:e.target.value,globalState:data}))}
+          value={searchQuery}
+          onChange={(e) =>
+            dispatch(setQuery({ query: e.target.value, globalState: data }))
+          }
         />
       </div>
     </div>
@@ -82,6 +88,6 @@ type propTypes = {
 type path = {
   name: string;
   link: string;
-}
+};
 
 export default Navbar;

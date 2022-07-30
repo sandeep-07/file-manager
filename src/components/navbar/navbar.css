@@ -37,6 +37,7 @@
 .nb172BreadcrumbItem {
     color: #0d6efd;
     cursor: pointer;
+    font-weight: 900;
 }
 
 .nb278active {

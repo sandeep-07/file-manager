@@ -9,6 +9,8 @@ import desktopFolder from "../../assets/desktopFolder.png";
 import downloads from "../../assets/downloads.png";
 import documents from "../../assets/documents.png";
 import bin from "../../assets/bin.png";
+import folder from "../../assets/folder.png";
+import fileIcon from "../../assets/fileIcon.png";
 
 import "./sidebar.css";
 
@@ -29,7 +31,7 @@ const getFolderIcon = (data: dataType) => {
       return <img className="sb828ItemImage" src={bin} alt="bin" />;
 
     default:
-      return <></>;
+      return <img className="sb828ItemImage " src={folder} />;
   }
 };
 
@@ -56,9 +58,7 @@ function Sidebar({ data }: propTypes) {
       {data?.isFolder === true ? (
         <>
           <div className="sb279Item" onClick={() => handleClick(data)}>
-            <div className="sb682ImageContainer">
-              {data.isAdmin === true && getFolderIcon(data)}
-            </div>
+            <div className="sb682ImageContainer">{getFolderIcon(data)}</div>
             <div className="sb818ItemText">{data.name}</div>
           </div>
           <div className="">
@@ -70,12 +70,15 @@ function Sidebar({ data }: propTypes) {
           </div>
         </>
       ) : (
-        <div
-          className="sb279Item"
-          onClick={() => navigate(`/file/${data.name}/${data.id}`)}
-        >
-          {data.name}
-        </div>
+        <>
+          <div
+            className="sb279Item"
+            onClick={() => navigate(`/file/${data.name}/${data.id}`)}
+          >
+            <img className="sb828ItemImage" src={fileIcon} alt="file" />
+            <p className="sb818ItemText">{data.name} </p>
+          </div>
+        </>
       )}
     </div>
   );

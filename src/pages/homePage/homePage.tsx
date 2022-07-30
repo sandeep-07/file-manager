@@ -2,14 +2,11 @@ import { useSelector } from "react-redux";
 import DashboardItems from "../../components/dashboardItems/dashboardItems";
 import { globalType } from "../../types/interfaces";
 
-const HomePage = () => {
-  const { rootFolderDetails } = useSelector((state: globalType) => ({
-    rootFolderDetails: state.fileFolder,
-  }));
+const HomePage = ({children}:any) => {
 
   return (
     <div>
-      <DashboardItems items={rootFolderDetails.children} />
+      <DashboardItems items={children} />
     </div>
   );
 };

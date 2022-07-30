@@ -28,7 +28,7 @@ const DashboardItems = ({ items }: propTypes) => {
     });
   }, [coordinates]);
 
-  const handleDoubleClick = (name: string, id: string, isFolder: string) => {
+  const handleDoubleClick = (name: string, id: string, isFolder: boolean) => {
     if (!isFolder) {
       navigate(`/file/${name}/${id}`);
       return;
@@ -79,7 +79,7 @@ const DashboardItems = ({ items }: propTypes) => {
           id={itemRightClicked}
         />
       )}
-      {items?.map((item: any, idx: number) => (
+      {items?.map((item: dataType, idx: number) => (
         <div
           onClick={handleClick}
           onContextMenu={(e) => handleContextMenuClick(e, item.id)}
