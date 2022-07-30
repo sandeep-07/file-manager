@@ -29,7 +29,7 @@ const App = () => {
   useEffect(() => {
     if (searchQuery.length > 0) {
       dispatch(changeFolder("root"));
-      navigatge("/");
+      navigatge("/file-manager");
     }
   }, [searchQuery]);
   return (
@@ -44,16 +44,19 @@ const App = () => {
 
         <Routes>
           {searchQuery?.length > 0 ? (
-            <Route path="/" element={<SearchComponent />} />
+            <Route path="file-manager/" element={<SearchComponent />} />
           ) : (
             <Route
-              path="/"
+              path="file-manager/"
               element={<HomePage children={rootFolderDetails.children} />}
             />
           )}
 
-          <Route path="/:folderId" element={<FolderComponent />} />
-          <Route path="/file/:query/:fileId" element={<FileComponent />} />
+          <Route path="file-manager/:folderId" element={<FolderComponent />} />
+          <Route
+            path="file-manager/file/:query/:fileId"
+            element={<FileComponent />}
+          />
         </Routes>
       </div>
     </div>

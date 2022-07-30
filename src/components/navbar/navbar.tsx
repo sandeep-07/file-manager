@@ -30,7 +30,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 
   const handleClick = (link: string) => {
     if (link === "") {
-      navigate("/");
+      navigate("file-manager/");
       dispatch(setQuery({ query: "", globalState: data }));
       dispatch(changeFolder("root"));
       return;
@@ -67,7 +67,6 @@ const Navbar = ({ setIsOpen }: propTypes) => {
         >
           Add
         </i>
-        
 
         <input
           type="text"
