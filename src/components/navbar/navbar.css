@@ -4,19 +4,29 @@
     align-items: center;
     margin: 10px 0;
     flex-direction: column-reverse;
-    /* border-bottom: #6c757d 1px solid; */
-
 }
 .nb527NavbarLeftContainer{
     margin-top: 10px;
     width: 100%;
 }
+
 .nb267NavbarRightContainer {
     border-bottom: 1px solid #dbdce7;
     width: 100%;
     justify-content: space-between;
     display: flex;
+}
 
+@media only screen and (max-width:600px)  {
+    .nb267NavbarRightContainer{
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: start;
+    }
+    .nb341Input{
+        width: 100% !important;
+        margin-bottom: 15px;
+    }
 }
 
 .nb341Input {
@@ -25,7 +35,7 @@
     font-size: 16px;
     outline: none;
     border-radius: 10px;
-    width: 40%;
+    width: 350px;
     background-color: #fff;
 }
 
@@ -50,9 +60,12 @@
     background-size: 20px;
 }
 .nb361OpenModalIcon{
-    border: 2px solid rgb(83, 83, 83);
+    border: 1px solid rgba(83, 83, 83,0.3);
     cursor: pointer;
     align-self: center;
     padding: 10px;
+    font-weight: 300;
     border-radius: 20%;
+    color: #a0a0a0;
+    margin: 4px;
 }

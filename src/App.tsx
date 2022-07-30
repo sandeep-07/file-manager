@@ -18,7 +18,7 @@ import DetailsModal from "./components/detailsModal/detailsModal";
 const App = () => {
   const data = useSelector((state: any) => state.fileFolder);
   const [open, setOpen] = useState(false);
-  const [openDetails, setOpenDetails] = useState(false);
+
   const dispatch = useDispatch();
 
   const searchQuery = useSelector((state: any) => state?.search?.query);
@@ -40,7 +40,6 @@ const App = () => {
         <Sidebar data={data} />
       </div>
       <div className="app292Dashboard">
-        <button onClick={() => setOpenDetails(true)}>Open kro bhai</button>
         <Navbar setIsOpen={setOpen} isOpen={open} />
 
         <Routes>

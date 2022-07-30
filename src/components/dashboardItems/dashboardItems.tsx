@@ -14,10 +14,13 @@ import bin from "../../assets/bin.png";
 import folder from "../../assets/folder.png";
 
 import "./dashboardItems.css";
+import DetailsModal from "../detailsModal/detailsModal";
 
 const DashboardItems = ({ items }: propTypes) => {
   const [open, setOpen] = useState(false);
-  const [itemRightClicked, setItemRightClicked] = useState("");
+  const [itemRightClicked, setItemRightClicked] = useState<dataType>(
+    {} as dataType
+  );
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,11 +42,11 @@ const DashboardItems = ({ items }: propTypes) => {
 
   const handleContextMenuClick = (
     e: React.MouseEvent<HTMLDivElement>,
-    id: string
+    item: dataType
   ) => {
     e.preventDefault();
     setCoordinates({ x: e.pageX, y: e.pageY });
-    setItemRightClicked(id);
+    setItemRightClicked(item);
     setOpen(true);
   };
 
@@ -69,20 +72,29 @@ const DashboardItems = ({ items }: propTypes) => {
         return <img src={folder} className="di019Image" />;
     }
   };
-
+  const [openDetails, setOpenDetails] = useState(false);
+  const [showDetailsOfItem, setShowDetailsOfItem] = useState<dataType>(
+    {} as dataType
+  );
+  // console.log("show details", showDetailsOfItem, openDetails);
   return (
     <div className="di204Row">
       {open && (
         <ContextMenu
           setOpen={setOpen}
           cordinates={coordinates}
-          id={itemRightClicked}
+          item={itemRightClicked}
+          setShowDetailsOfItem={setShowDetailsOfItem}
+          setOpenDetails={setOpenDetails}
         />
+      )}
+      {openDetails && (
+        <DetailsModal setIsOpen={setOpenDetails} item={showDetailsOfItem} />
       )}
       {items?.map((item: dataType, idx: number) => (
         <div
           onClick={handleClick}
-          onContextMenu={(e) => handleContextMenuClick(e, item.id)}
+          onContextMenu={(e) => handleContextMenuClick(e, item)}
           onDoubleClick={() =>
             handleDoubleClick(item.name, item.id, item.isFolder)
           }

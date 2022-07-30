@@ -1,14 +1,29 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "../../redux/actionCreators/fileFolderActionCreators";
+import { dataType } from "../../types/interfaces";
+import DetailsModal from "../detailsModal/detailsModal";
 
 import "./contextMenu.css";
 
-const ContextMenu = ({ cordinates, id, setOpen }: propTypes) => {
+const ContextMenu = ({
+  cordinates,
+  item,
+  setOpen,
+  setShowDetailsOfItem,
+  setOpenDetails
+}: propTypes) => {
+  // const [openDetails, setOpenDetails] = useState(true);
   const dispatch = useDispatch();
+  const { id } = item;
 
   const handleClick = () => {
     dispatch(deleteItem(id));
-    setOpen(false);
+  };
+
+  const handleShowDetails = () => {
+    setOpenDetails(true)
+    setShowDetailsOfItem(item);
   };
 
   return (
@@ -18,7 +33,9 @@ const ContextMenu = ({ cordinates, id, setOpen }: propTypes) => {
       onClick={() => setOpen(false)}
     >
       <div className="cm241MenuItem">Open</div>
-      <div className="cm241MenuItem">Show Details</div>
+      <div className="cm241MenuItem" onClick={handleShowDetails}>
+        Show Details
+      </div>
       <div onClick={handleClick} className="cm241MenuItem">
         Delete
       </div>
@@ -28,8 +45,10 @@ const ContextMenu = ({ cordinates, id, setOpen }: propTypes) => {
 
 type propTypes = {
   cordinates: { x: number; y: number };
-  id: string;
+  item: dataType;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowDetailsOfItem: React.Dispatch<React.SetStateAction<dataType>>;
+  setOpenDetails: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default ContextMenu;

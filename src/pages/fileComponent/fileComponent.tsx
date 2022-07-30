@@ -32,11 +32,11 @@ const FileComponent = () => {
 
     setLoading(false);
   };
-  useEffect(() => {
-    setData([]);
-    getPhotos();
+  // useEffect(() => {
+  //   setData([]);
+  //   getPhotos();
 
-   }, [query]);
+  //  }, [query]);
   useEffect(() => {
     getPhotos();
   }, []);
@@ -75,7 +75,6 @@ const FileComponent = () => {
                 <img
                   src={item}
                   alt=""
-                  style={{ width: "100%" }}
                   className="fc999Image"
                 />
               </div>

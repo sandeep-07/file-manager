@@ -64,7 +64,10 @@ const Navbar = ({ setIsOpen }: propTypes) => {
         <i
           className="fa-solid fa-plus nb361OpenModalIcon"
           onClick={() => setIsOpen(true)}
-        ></i>
+        >
+          Add
+        </i>
+        
 
         <input
           type="text"

@@ -3,6 +3,9 @@ const intitialState = {
   name: "root",
   id: "root",
   isAdmin: true,
+  creator: "admin",
+  type: "Default",
+  createdAt: new Date().toISOString(),
   path: [
     {
       name: "root",
@@ -17,6 +20,9 @@ const intitialState = {
       isFolder: true,
       children: [],
       isAdmin: true,
+      creator: "admin",
+      type: "Default",
+      createdAt: new Date().toISOString(),
       path: [
         {
           name: "root",
@@ -32,8 +38,11 @@ const intitialState = {
       name: "Desktop",
       id: "bgfbbebifhddaciacjec",
       isFolder: true,
+      creator: "admin",
+      type: "Default",
       children: [],
       isAdmin: true,
+      createdAt: new Date().toISOString(),
       path: [
         {
           name: "root",
@@ -50,7 +59,10 @@ const intitialState = {
       id: "jgjkhihjeeacdffggibk",
       isFolder: true,
       isAdmin: true,
+      creator: "admin",
+      type: "Default",
       children: [],
+      createdAt: new Date().toISOString(),
       path: [
         {
           name: "root",
@@ -67,7 +79,10 @@ const intitialState = {
       id: "bkbcecfjfhkgaefacjbj",
       isFolder: true,
       isAdmin: true,
+      creator: "admin",
+      type: "Default",
       children: [],
+      createdAt: new Date().toISOString(),
       path: [
         {
           name: "root",
@@ -85,6 +100,9 @@ const intitialState = {
       isFolder: true,
       isAdmin: true,
       children: [],
+      creator: "admin",
+      type: "Default",
+      createdAt: new Date().toLocaleString(),
       path: [
         {
           name: "root",

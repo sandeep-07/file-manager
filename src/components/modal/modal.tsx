@@ -18,6 +18,9 @@ const Modal = ({ setIsOpen }: props) => {
       id: getUuid(),
       isFolder: true,
       children: [],
+      type: type,
+      creator: creatorName,
+      createdAt: new Date().toLocaleDateString(),
     };
     dispatch(createItem({ createInside: createInside, item: data }));
     setIsOpen(false);
@@ -29,6 +32,9 @@ const Modal = ({ setIsOpen }: props) => {
       id: getUuid(),
       isFolder: false,
       children: [],
+      creator: creatorName,
+      type: type,
+      createdAt: new Date().toLocaleDateString(),
     };
     dispatch(createItem({ createInside: createInside, item: data }));
     setIsOpen(false);

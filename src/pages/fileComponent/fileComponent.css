@@ -1,7 +1,9 @@
 .fc901Gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 30px;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .fc901Gallery .fc018Pics {
@@ -82,4 +84,13 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+}
+
+.fc018Pics{
+    /* width: 400px; */
+}
+.fc999Image{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }

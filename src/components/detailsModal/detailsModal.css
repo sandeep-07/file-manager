@@ -124,3 +124,10 @@
     transform: none;
     background: whitesmoke;
 }
+.column{
+    display: flex;
+    flex-direction: row;
+}
+.right{
+    margin-left: auto;
+}
