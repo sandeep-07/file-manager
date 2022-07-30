@@ -42,6 +42,11 @@ function Sidebar({ data }: propTypes) {
       navigate(`/file/${data.name}/${data.id}`);
       return;
     }
+    if (data.id === "root") {
+      navigate("/");
+      dispatch(changeFolder("root"));
+      return;
+    }
     dispatch(changeFolder(data.id));
     navigate(`/${data.id}`);
   };

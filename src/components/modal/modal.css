@@ -1,10 +1,9 @@
 /* @src/components/Modal.module.css */
 
 .ml900DarkBG {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(55, 55, 55, 0.2);
     width: 100vw;
     height: 100vh;
-    z-index: 0;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -12,7 +11,7 @@
 }
 
 .ml019Centered {
-    position: fixed;
+    position: absolute;
     z-index: 100;
     display: flex;
     justify-content: center;
@@ -20,6 +19,8 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    margin:  0 auto;
+    text-align: center;
 }
 
 .ml287Modal {
@@ -42,7 +43,6 @@
 
 .ml001Heading {
     margin: 0;
-    /* padding: 15px 0; */
     color: #2c3e50;
     font-weight: 900;
     font-size: 22px;
@@ -50,7 +50,6 @@
 }
 
 .ml180FileOrFolder {
-    /* background-color: aqua; */
     display: flex;
     justify-content: center;
     margin-bottom: 25px;

@@ -5,18 +5,20 @@ import { useParams } from "react-router-dom";
 import "./fileComponent.css";
 const FileComponent = () => {
   const { query, fileId } = useParams();
+  console.log(query);
   const [data, setData] = useState<any>([]);
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
   const CLIENT_ID = "S3JbSCnpwZos07ZknjSnOVvPHN7pOcriBHqn496TSqg";
-  
+
   const getPhotos = async () => {
     const response = await fetch(
       `https://api.unsplash.com/search/photos?query=${query}&client_id=${CLIENT_ID}&page=${page}&per_page=20&orientation=landscape`
     );
     const dataFetched = await response.json();
+    
 
     dataFetched.results.map((item: any) => {
       setData((prevData: any) => [
@@ -27,10 +29,14 @@ const FileComponent = () => {
     if (dataFetched.results.length < 20) {
       setHasMore(false);
     }
-    
+
     setLoading(false);
   };
+  useEffect(() => {
+    setData([]);
+    getPhotos();
 
+   }, [query]);
   useEffect(() => {
     getPhotos();
   }, []);

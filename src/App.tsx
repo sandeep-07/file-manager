@@ -8,15 +8,16 @@ import FolderComponent from "./pages/folderComponent/folderComponent";
 import Sidebar from "./components/sidebar/sidebar";
 import Modal from "./components/modal/modal";
 import Navbar from "./components/navbar/navbar";
+import SearchComponent from "./pages/searchComponent/searchComponent";
 
 import "./App.css";
-
-
 
 const App = () => {
   const data = useSelector((state: any) => state.fileFolder);
   const [open, setOpen] = useState(false);
-console.log(open);
+
+  const searchQuery = useSelector((state: any) => state.search.query);
+
   return (
     <div className="app201AppComp">
       {open && <Modal setIsOpen={setOpen} />}
@@ -25,11 +26,23 @@ console.log(open);
       </div>
       <div className="app292Dashboard">
         <Navbar setIsOpen={setOpen} isOpen={open} />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/:folderId" element={<FolderComponent />} />
-          <Route path="/file/:query/:fileId" element={<FileComponent />} />
-        </Routes>
+
+        {searchQuery !== "" ? (
+          <>
+          <SearchComponent />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/:folderId" element={<FolderComponent />} />
+              <Route path="/file/:query/:fileId" element={<FileComponent />} />
+            </Routes>
+          </>
+        ) : (
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/:folderId" element={<FolderComponent />} />
+            <Route path="/file/:query/:fileId" element={<FileComponent />} />
+          </Routes>
+        )}
       </div>
     </div>
   );

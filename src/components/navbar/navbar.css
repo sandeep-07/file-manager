@@ -3,14 +3,20 @@
     justify-content: space-between;
     align-items: center;
     margin: 10px 0;
-}
+    flex-direction: column-reverse;
+    /* border-bottom: #6c757d 1px solid; */
 
+}
+.nb527NavbarLeftContainer{
+    margin-top: 10px;
+    width: 100%;
+}
 .nb267NavbarRightContainer {
-    width: 35%;
+    border-bottom: 1px solid #dbdce7;
+    width: 100%;
+    justify-content: space-between;
     display: flex;
-    flex-direction: row;
-    width: 37%;
-    justify-content: space-around;
+
 }
 
 .nb341Input {
@@ -19,7 +25,8 @@
     font-size: 16px;
     outline: none;
     border-radius: 10px;
-    width: 70%;
+    width: 40%;
+    background-color: #fff;
 }
 
 ::placeholder {
@@ -43,8 +50,8 @@
 }
 .nb361OpenModalIcon{
     border: 2px solid rgb(83, 83, 83);
-    /* padding: 20px; */
     cursor: pointer;
     align-self: center;
     padding: 10px;
+    border-radius: 20%;
 }

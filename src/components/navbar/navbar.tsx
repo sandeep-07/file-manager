@@ -10,7 +10,6 @@ import "./navbar.css";
 const Navbar = ({ setIsOpen }: propTypes) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [query, setQueryString] = useState("");
 
   const currentFolder = useSelector((state: any) => state.currentFolder);
   const data = useSelector((state: any) => state.fileFolder);
@@ -39,6 +38,8 @@ const Navbar = ({ setIsOpen }: propTypes) => {
     navigate("/" + link);
   };
 
+  // const data=useSelector((state: any) => state.fileFolder)
+
   return (
     <div className="nb719Navbar">
       <div className="nb527NavbarLeftContainer">
@@ -66,6 +67,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
           type="text"
           className="nb452Icon nb341Input"
           placeholder="Search"
+          onChange={(e) => dispatch(setQuery({query:e.target.value,globalState:data}))}
         />
       </div>
     </div>
@@ -76,5 +78,10 @@ type propTypes = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen: boolean;
 };
+
+type path = {
+  name: string;
+  link: string;
+}
 
 export default Navbar;
