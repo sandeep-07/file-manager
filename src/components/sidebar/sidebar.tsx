@@ -45,7 +45,7 @@ function Sidebar({ data }: propTypes) {
       return;
     }
     if (data.id === "root") {
-      navigate("file-manager/");
+      navigate("/");
       dispatch(changeFolder("root"));
       return;
     }

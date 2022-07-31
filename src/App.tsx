@@ -15,6 +15,7 @@ import { globalType } from "./types/interfaces";
 import { changeFolder } from "./redux/actionCreators/currentFolderActionCreator";
 import DetailsModal from "./components/detailsModal/detailsModal";
 
+
 const App = () => {
   const data = useSelector((state: any) => state.fileFolder);
   const [open, setOpen] = useState(false);
@@ -29,9 +30,10 @@ const App = () => {
   useEffect(() => {
     if (searchQuery.length > 0) {
       dispatch(changeFolder("root"));
-      navigatge("/file-manager");
+      navigatge("/");
     }
   }, [searchQuery]);
+  
   return (
     <div className="app201AppComp">
       {open && <Modal setIsOpen={setOpen} />}
@@ -44,19 +46,16 @@ const App = () => {
 
         <Routes>
           {searchQuery?.length > 0 ? (
-            <Route path="file-manager/" element={<SearchComponent />} />
+            <Route path="/" element={<SearchComponent />} />
           ) : (
             <Route
-              path="file-manager/"
+              path="/"
               element={<HomePage children={rootFolderDetails.children} />}
             />
           )}
 
-          <Route path="file-manager/:folderId" element={<FolderComponent />} />
-          <Route
-            path="file-manager/file/:query/:fileId"
-            element={<FileComponent />}
-          />
+          <Route path="/:folderId" element={<FolderComponent />} />
+          <Route path="/file/:query/:fileId" element={<FileComponent />} />
         </Routes>
       </div>
     </div>

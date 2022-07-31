@@ -7,7 +7,8 @@ const intitialState = {
 
 const searchRecursive = (state: any, results: any, query: string) => {
   query = query.toLowerCase();
-  if (query && query !== "" && state.name.includes(query)) {
+  const stName = state.name.toLowerCase();
+  if (query && query !== "" && stName.includes(query)) {
     results.push(state);
   }
   for (let k in state?.children) {
@@ -19,25 +20,27 @@ const searchReducer = (state = intitialState, action: any) => {
   switch (action.type) {
     case "SET_QUERY":
       const results = [] as any;
-
-      console.log(action.payload.query);
       if (action.payload.query === "") {
-        return {
+        const newState = {
           ...state,
           query: "",
           searchResults: [],
         };
+
+        
       }
       searchRecursive(
         action.payload?.globalState,
         results,
         action.payload?.query
       );
-      return {
+      const newState = {
         ...state,
         query: action.payload.query,
         searchResults: results,
       };
+      
+      return newState;
 
     default:
       return state;

@@ -5,7 +5,7 @@ const intitialState = {
   isAdmin: true,
   creator: "admin",
   type: "Default",
-  createdAt: new Date().toISOString(),
+  createdAt: new Date().toLocaleString(),
   path: [
     {
       name: "root",
@@ -22,7 +22,7 @@ const intitialState = {
       isAdmin: true,
       creator: "admin",
       type: "Default",
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toLocaleString(),
       path: [
         {
           name: "root",
@@ -42,7 +42,7 @@ const intitialState = {
       type: "Default",
       children: [],
       isAdmin: true,
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toLocaleString(),
       path: [
         {
           name: "root",
@@ -62,7 +62,7 @@ const intitialState = {
       creator: "admin",
       type: "Default",
       children: [],
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toLocaleString(),
       path: [
         {
           name: "root",
@@ -82,7 +82,7 @@ const intitialState = {
       creator: "admin",
       type: "Default",
       children: [],
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toLocaleString(),
       path: [
         {
           name: "root",
@@ -160,11 +160,13 @@ const fileFolderReducer = (state = intitialState, action: any) => {
       const { createInside, item } = action.payload;
       const newState = { ...state };
       addRecursive(newState, newState, createInside, item);
+      // localStorage.setItem("fileFolder", JSON.stringify(newState));
       return newState;
     case types.DELETE_ITEM:
       const deleteThis = action.payload;
       const newState2 = { ...state };
       deleteRecursive(newState2, state, deleteThis);
+      // localStorage.setItem("fileFolder", JSON.stringify(newState2));
       return newState2;
   }
   return state;

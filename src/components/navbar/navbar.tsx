@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +14,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
   const currentFolder = useSelector((state: any) => state.currentFolder);
   const data = useSelector((state: any) => state.fileFolder);
   const searchQuery = useSelector((state: any) => state.search.query);
+  const [str, setStr] = useState("");
   let getCurrentObject = {} as dataType;
   const eachRecursive = (obj: dataType, id: string) => {
     if (obj.id === id) {
@@ -30,7 +31,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 
   const handleClick = (link: string) => {
     if (link === "") {
-      navigate("file-manager/");
+      navigate("/");
       dispatch(setQuery({ query: "", globalState: data }));
       dispatch(changeFolder("root"));
       return;
@@ -39,7 +40,22 @@ const Navbar = ({ setIsOpen }: propTypes) => {
     navigate("/" + link);
   };
 
-  // const data=useSelector((state: any) => state.fileFolder)
+  const handleChange = (value: any) => {
+    dispatch(setQuery({ query: value, globalState: data }));
+  }
+  function debounce(func: any) {
+    let timer: any;
+    return (...args: any) => {
+      const context: any = this;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        timer = null;
+        func.apply(context, args);
+      }, 500);
+    };
+  }
+
+  const optimizedFn = useCallback(debounce(handleChange), []);
 
   return (
     <div className="nb719Navbar">
@@ -72,9 +88,12 @@ const Navbar = ({ setIsOpen }: propTypes) => {
           type="text"
           className="nb452Icon nb341Input"
           placeholder="Search"
-          value={searchQuery}
-          onChange={(e) =>
-            dispatch(setQuery({ query: e.target.value, globalState: data }))
+          // value={str}
+          onChange={
+            (e) => {
+              optimizedFn(e.target.value);
+            }
+            // dispatch(setQuery({ query: e.target.value, globalState: data }))
           }
         />
       </div>
