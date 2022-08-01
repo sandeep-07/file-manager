@@ -13,7 +13,6 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 
   const currentFolder = useSelector((state: any) => state.currentFolder);
   const data = useSelector((state: any) => state.fileFolder);
-  const searchQuery = useSelector((state: any) => state.search.query);
   const [str, setStr] = useState("");
   let getCurrentObject = {} as dataType;
   const eachRecursive = (obj: dataType, id: string) => {
@@ -42,18 +41,17 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 
   const handleChange = (value: any) => {
     dispatch(setQuery({ query: value, globalState: data }));
-  }
-  function debounce(func: any) {
-    let timer: any;
-    return (...args: any) => {
-      const context: any = this;
+  };
+  const debounce = (func: Function) => {
+    let timer: number;
+    return (...args: Array<String>) => {
+      const context: undefined = this;
       if (timer) clearTimeout(timer);
       timer = setTimeout(() => {
-        timer = null;
         func.apply(context, args);
       }, 500);
     };
-  }
+  };
 
   const optimizedFn = useCallback(debounce(handleChange), []);
 
@@ -87,14 +85,10 @@ const Navbar = ({ setIsOpen }: propTypes) => {
         <input
           type="text"
           className="nb452Icon nb341Input"
-          placeholder="Search"
-          // value={str}
-          onChange={
-            (e) => {
-              optimizedFn(e.target.value);
-            }
-            // dispatch(setQuery({ query: e.target.value, globalState: data }))
-          }
+          placeholder=" Search"
+          onChange={(e) => {
+            optimizedFn(e.target.value);
+          }}
         />
       </div>
     </div>
@@ -106,7 +100,7 @@ type propTypes = {
   isOpen: boolean;
 };
 
-type path = {
+type pathType = {
   name: string;
   link: string;
 };

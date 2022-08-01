@@ -1,8 +1,9 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { dataType } from "../../types/interfaces";
+import DetailsModal from "../detailsModal/detailsModal";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
 import ContextMenu from "../contextMenu/contextMenu";
 import homeFolder from "../../assets/homeFolder.png";
@@ -14,16 +15,15 @@ import bin from "../../assets/bin.png";
 import folder from "../../assets/folder.png";
 
 import "./dashboardItems.css";
-import DetailsModal from "../detailsModal/detailsModal";
 
 const DashboardItems = ({ items }: propTypes) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [itemRightClicked, setItemRightClicked] = useState<dataType>(
     {} as dataType
   );
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener("click", () => {
@@ -76,7 +76,7 @@ const DashboardItems = ({ items }: propTypes) => {
   const [showDetailsOfItem, setShowDetailsOfItem] = useState<dataType>(
     {} as dataType
   );
-  // console.log("show details", showDetailsOfItem, openDetails);
+  
   return (
     <div className="di204Row">
       {open && (

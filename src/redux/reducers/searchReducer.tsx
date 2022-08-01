@@ -1,11 +1,15 @@
 import { useSelector } from "react-redux";
-
+import { dataType } from "../../types/interfaces";
 const intitialState = {
   query: "",
   searchResults: [],
 };
 
-const searchRecursive = (state: any, results: any, query: string) => {
+const searchRecursive = (
+  state: dataType,
+  results: dataType[],
+  query: string
+) => {
   query = query.toLowerCase();
   const stName = state.name.toLowerCase();
   if (query && query !== "" && stName.includes(query)) {
@@ -19,15 +23,13 @@ const searchRecursive = (state: any, results: any, query: string) => {
 const searchReducer = (state = intitialState, action: any) => {
   switch (action.type) {
     case "SET_QUERY":
-      const results = [] as any;
+      const results = [] as dataType[];
       if (action.payload.query === "") {
         const newState = {
           ...state,
           query: "",
           searchResults: [],
         };
-
-        
       }
       searchRecursive(
         action.payload?.globalState,
@@ -39,7 +41,7 @@ const searchReducer = (state = intitialState, action: any) => {
         query: action.payload.query,
         searchResults: results,
       };
-      
+
       return newState;
 
     default:

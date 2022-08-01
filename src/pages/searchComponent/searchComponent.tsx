@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import DashboardItems from "../../components/dashboardItems/dashboardItems";
 import empty from "../../assets/empty.jpg";

@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
+
 import { deleteItem } from "../../redux/actionCreators/fileFolderActionCreators";
 import { dataType } from "../../types/interfaces";
-import DetailsModal from "../detailsModal/detailsModal";
 
 import "./contextMenu.css";
 
@@ -11,19 +12,32 @@ const ContextMenu = ({
   item,
   setOpen,
   setShowDetailsOfItem,
-  setOpenDetails
+  setOpenDetails,
 }: propTypes) => {
-  // const [openDetails, setOpenDetails] = useState(true);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = item;
 
-  const handleClick = () => {
+  const handleDeleteClick = () => {
+    if (item.isAdmin) {
+      alert("You can't delete admin folder");
+      return;
+    }
     dispatch(deleteItem(id));
   };
 
   const handleShowDetails = () => {
-    setOpenDetails(true)
+    setOpenDetails(true);
     setShowDetailsOfItem(item);
+  };
+
+  const handleOpen = () => {
+    if (!item.isFolder) {
+      navigate(`/file/${item.name}/${id}`);
+      return;
+    }
+    dispatch(changeFolder(id));
+    navigate(`/${id}`);
   };
 
   return (
@@ -32,11 +46,13 @@ const ContextMenu = ({
       className="cm901Menu"
       onClick={() => setOpen(false)}
     >
-      <div className="cm241MenuItem">Open</div>
+      <div className="cm241MenuItem" onClick={handleOpen}>
+        Open
+      </div>
       <div className="cm241MenuItem" onClick={handleShowDetails}>
         Show Details
       </div>
-      <div onClick={handleClick} className="cm241MenuItem">
+      <div onClick={handleDeleteClick} className="cm241MenuItem">
         Delete
       </div>
     </div>

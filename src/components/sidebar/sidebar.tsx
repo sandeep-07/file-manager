@@ -58,7 +58,6 @@ function Sidebar({ data }: propTypes) {
       <>
         <div
           className="sb279Item"
-          // onClick={() => setExpand(!expand)}
           onClick={() => handleClick(data)}
         >
           <div className="sb682ImageContainer">{getFolderIcon(data)}</div>

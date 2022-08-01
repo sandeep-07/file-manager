@@ -9,6 +9,7 @@ import "./folderComponent.css";
 const FolderComponent = (): JSX.Element => {
   const { folderId } = useParams();
   let allFoldersHere: dataType = {} as dataType;
+
   const eachRecursive = (obj: dataType, id: string | undefined) => {
     if (obj.id === id) {
       {
@@ -22,7 +23,9 @@ const FolderComponent = (): JSX.Element => {
   };
 
   const data = useSelector((state: globalType) => state.fileFolder);
+
   eachRecursive(data, folderId);
+
   if (allFoldersHere.children.length !== 0) {
     return (
       <div>

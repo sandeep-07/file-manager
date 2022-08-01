@@ -7,8 +7,14 @@ export interface dataType {
     children: dataType[];
 }
 
+interface searchType{
+    query: string;
+    searchResult: dataType[];
+}
+
 export interface globalType{
     fileFolder: dataType;
     currentFolder: string;
+    search:searchType
     
 }

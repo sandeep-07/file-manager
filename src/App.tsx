@@ -9,35 +9,36 @@ import Sidebar from "./components/sidebar/sidebar";
 import Modal from "./components/modal/modal";
 import Navbar from "./components/navbar/navbar";
 import SearchComponent from "./pages/searchComponent/searchComponent";
+import { changeFolder } from "./redux/actionCreators/currentFolderActionCreator";
+import { globalType } from "./types/interfaces";
+
 
 import "./App.css";
-import { globalType } from "./types/interfaces";
-import { changeFolder } from "./redux/actionCreators/currentFolderActionCreator";
-import DetailsModal from "./components/detailsModal/detailsModal";
-
 
 const App = () => {
+  const navigatge = useNavigate();
+  const dispatch = useDispatch();
+
   const data = useSelector((state: any) => state.fileFolder);
   const [open, setOpen] = useState(false);
 
-  const dispatch = useDispatch();
+  const { rootFolderDetails, searchQuery } = useSelector(
+    (state: globalType) => ({
+      rootFolderDetails: state.fileFolder,
+      searchQuery: state?.search?.query,
+    })
+  );
 
-  const searchQuery = useSelector((state: any) => state?.search?.query);
-  const { rootFolderDetails } = useSelector((state: globalType) => ({
-    rootFolderDetails: state.fileFolder,
-  }));
-  const navigatge = useNavigate();
   useEffect(() => {
     if (searchQuery.length > 0) {
       dispatch(changeFolder("root"));
       navigatge("/");
     }
   }, [searchQuery]);
-  
+
   return (
     <div className="app201AppComp">
       {open && <Modal setIsOpen={setOpen} />}
-      {/* {openDetails && <DetailsModal setIsOpen={setOpenDetails} />} */}
       <div className="app245Sidebar">
         <Sidebar data={data} />
       </div>

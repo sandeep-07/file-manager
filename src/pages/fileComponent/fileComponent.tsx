@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -40,15 +40,18 @@ const FileComponent = () => {
         setError(err.response.data);
       });
   };
+
   useEffect(() => {
     setData([]);
     setLoading(false);
     setError("");
     getPhotos();
   }, [query]);
+
   useEffect(() => {
     getPhotos();
   }, []);
+
   const [modal, setModal] = useState(false);
   const [tempImage, setTempImage] = useState("");
 
@@ -56,6 +59,7 @@ const FileComponent = () => {
     setTempImage(imgSrc);
     setModal(true);
   };
+
   if (error.length === 0) {
     return (
       <InfiniteScroll

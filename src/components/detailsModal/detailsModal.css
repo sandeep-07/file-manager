@@ -1,4 +1,4 @@
-.darkBG {
+.dm999darkBG {
     background-color: rgba(0, 0, 0, 0.2);
     width: 100vw;
     height: 100vh;
@@ -9,14 +9,14 @@
     position: absolute;
 }
 
-.centered {
+.dm9349centered {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.modal {
+.dm223Modal {
     width: 250px;
     height: 170px;
     background: white;
@@ -26,7 +26,7 @@
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
 }
 
-.modalHeader {
+.dm237ModalHeader {
     height: 50px;
     background: white;
     overflow: hidden;
@@ -34,7 +34,7 @@
     border-top-right-radius: 16px;
 }
 
-.heading {
+.dm200Heading {
     margin: 0;
     padding: 10px;
     color: #2c3e50;
@@ -43,27 +43,27 @@
     text-align: center;
 }
 
-.modalContent {
+.dm900ModalContent {
     padding: 10px;
     font-size: 14px;
     color: #2c3e50;
     text-align: center;
 }
 
-.modalActions {
+.dm933ModalActions {
     position: absolute;
     bottom: 2px;
     margin-bottom: 10px;
     width: 100%;
 }
 
-.actionsContainer {
+.dm237ActionsContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.closeBtn {
+.dm009CloseBtn {
     cursor: pointer;
     font-weight: 500;
     padding: 4px 8px;
@@ -124,10 +124,10 @@
     transform: none;
     background: whitesmoke;
 }
-.column{
+.dm999Column{
     display: flex;
     flex-direction: row;
 }
-.right{
+.dm283Right{
     margin-left: auto;
 }

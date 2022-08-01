@@ -1,45 +1,43 @@
-import React from "react";
 import "./detailsModal.css";
-// import { RiCloseLine } from "react-icons/ri";
 
 const DetailsModal = ({ setIsOpen, item }: any) => {
-  console.log(item);
+
   return (
     <>
-      <div className="darkBG" onClick={() => setIsOpen(false)} />
-      <div className="centered">
-        <div className="modal">
+      <div className="dm999darkBG" onClick={() => setIsOpen(false)} />
+      <div className="dm9349centered">
+        <div className="dm223Modal">
           <div className="modalHeader">
-            <h5 className="heading">Details</h5>
+            <h5 className="dm200Heading">Details</h5>
           </div>
-          <button className="closeBtn" onClick={() => setIsOpen(false)}>
+          <button className="dm009CloseBtn" onClick={() => setIsOpen(false)}>
             <i className="fa-solid fa-xmark"></i>
           </button>
-          <div className="modalContent">
-            <div className="row">
-              <div className="column">
-                <div className="left">Name</div>
-                <div className="right">{item.name}</div>
+          <div className="dm900ModalContent">
+            <div className="dm950Row">
+              <div className="dm999Column">
+                <div className="dm288Left">Name</div>
+                <div className="dm283Right">{item.name}</div>
               </div>
             </div>
-            <div className="row">
-              <div className="column">
-                <div className="left">Type</div>
-                <div className="right">
+            <div className="dm950Row">
+              <div className="dm999Column">
+                <div className="dm288Left">Type</div>
+                <div className="dm283Right">
                   {item.type?.length == 0 ?( <p>General</p>) : (<p>{item.type}</p>)}
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="column">
-                <div className="left">Created at</div>
-                <div className="right">{item.createdAt}</div>
+            <div className="dm950Row">
+              <div className="dm999Column">
+                <div className="dm288Left">Created at</div>
+                <div className="dm283Right">{item.createdAt}</div>
               </div>
             </div>
-            <div className="row">
-              <div className="column">
-                <div className="left">Created By</div>
-                <div className="right">
+            <div className="dm950Row">
+              <div className="dm999Column">
+                <div className="dm288Left">Created By</div>
+                <div className="dm283Right">
                   {item.creator.length == 0 ? (
                     <>Guest</>
                   ) : (
@@ -48,15 +46,15 @@ const DetailsModal = ({ setIsOpen, item }: any) => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="column">
-                <div className="left">Items contained</div>
-                <div className="right">{item.children?.length || 0}</div>
+            <div className="dm950Row">
+              <div className="dm999Column">
+                <div className="dm288Left">Items contained</div>
+                <div className="dm283Right">{item.children?.length || 0}</div>
               </div>
             </div>
           </div>
           <div className="modalActions">
-            <div className="actionsContainer"></div>
+            <div className="dm237ActionsContainer"></div>
           </div>
         </div>
       </div>
