@@ -1,7 +1,7 @@
+import { dataType } from "../../types/interfaces";
 import "./detailsModal.css";
 
-const DetailsModal = ({ setIsOpen, item }: any) => {
-
+const DetailsModal = ({ setIsOpen, item }: propTypes) => {
   return (
     <>
       <div className="dm999darkBG" onClick={() => setIsOpen(false)} />
@@ -24,7 +24,7 @@ const DetailsModal = ({ setIsOpen, item }: any) => {
               <div className="dm999Column">
                 <div className="dm288Left">Type</div>
                 <div className="dm283Right">
-                  {item.type?.length == 0 ?( <p>General</p>) : (<p>{item.type}</p>)}
+                  {item.type?.length == 0 ? <p>General</p> : <p>{item.type}</p>}
                 </div>
               </div>
             </div>
@@ -60,6 +60,11 @@ const DetailsModal = ({ setIsOpen, item }: any) => {
       </div>
     </>
   );
+};
+
+type propTypes = {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  item: dataType;
 };
 
 export default DetailsModal;

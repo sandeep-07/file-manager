@@ -40,7 +40,7 @@ function Sidebar({ data }: propTypes) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [expand, setExpand] = React.useState(true);
-  const handleClick = (data: any) => {
+  const handleClick = (data: dataType) => {
     if (!data.isFolder) {
       navigate(`/file/${data.name}/${data.id}`);
       return;

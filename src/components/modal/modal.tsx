@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createItem } from "../../redux/actionCreators/fileFolderActionCreators";
+import { globalType } from "../../types/interfaces";
 import { getUuid } from "../../utils/getUuid";
 
 import "./modal.css";
 
 const Modal = ({ setIsOpen }: props) => {
   const dispatch = useDispatch();
-  const createInside = useSelector((state: any) => state.currentFolder);
+  const createInside = useSelector((state: globalType) => state.currentFolder);
   const [shouldCreateFile, setShouldCreateFile] = useState(0);
   const [itemName, setItemName] = useState("");
   const [creatorName, setCreatorName] = useState("");

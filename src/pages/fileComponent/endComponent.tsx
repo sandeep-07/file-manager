@@ -1,6 +1,6 @@
 import React from "react";
 import end from "../../assets/end.png";
-import "./EndComponent.css";
+import "./endComponent.css";
 const EndComponent = () => {
   return (
     <div className="ei289EndContainer">

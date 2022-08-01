@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { dataType } from "../../types/interfaces";
+import { dataType, globalType } from "../../types/interfaces";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
 import { setQuery } from "../../redux/actionCreators/searchActionCreator";
 import "./navbar.css";
@@ -11,8 +11,8 @@ const Navbar = ({ setIsOpen }: propTypes) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const currentFolder = useSelector((state: any) => state.currentFolder);
-  const data = useSelector((state: any) => state.fileFolder);
+  const currentFolder = useSelector((state: globalType) => state.currentFolder);
+  const data = useSelector((state: globalType) => state.fileFolder);
   const [str, setStr] = useState("");
   let getCurrentObject = {} as dataType;
   const eachRecursive = (obj: dataType, id: string) => {
@@ -39,7 +39,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
     navigate("/" + link);
   };
 
-  const handleChange = (value: any) => {
+  const handleChange = (value: string) => {
     dispatch(setQuery({ query: value, globalState: data }));
   };
   const debounce = (func: Function) => {

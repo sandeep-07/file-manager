@@ -19,7 +19,7 @@ const App = () => {
   const navigatge = useNavigate();
   const dispatch = useDispatch();
 
-  const data = useSelector((state: any) => state.fileFolder);
+  const data = useSelector((state: globalType) => state.fileFolder);
   const [open, setOpen] = useState(false);
 
   const { rootFolderDetails, searchQuery } = useSelector(

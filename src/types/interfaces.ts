@@ -3,6 +3,9 @@ export interface dataType {
     id: string;
     isFolder: boolean;
     isAdmin: boolean;
+    type: string,
+    createdAt: string,
+    creator: string,
     path: [{ name: string, id: string }];
     children: dataType[];
 }
