@@ -11,6 +11,7 @@ import documents from "../../assets/documents.png";
 import bin from "../../assets/bin.png";
 import folder from "../../assets/folder.png";
 import fileIcon from "../../assets/fileIcon.png";
+import pictures from "../../assets/pictures.png";
 
 import "./sidebar.css";
 
@@ -27,8 +28,8 @@ const getFolderIcon = (data: dataType) => {
       return <img className="sb828ItemImage" src={downloads} alt="downloads" />;
     case "Documents":
       return <img className="sb828ItemImage" src={documents} alt="documents" />;
-    case "Recycle Bin":
-      return <img className="sb828ItemImage" src={bin} alt="bin" />;
+    case "Pictures":
+      return <img className="sb828ItemImage" src={pictures} alt="pictures" />;
 
     default:
       return <img className="sb828ItemImage " src={folder} />;
@@ -56,10 +57,7 @@ function Sidebar({ data }: propTypes) {
   if (data.isFolder)
     return (
       <>
-        <div
-          className="sb279Item"
-          onClick={() => handleClick(data)}
-        >
+        <div className="sb279Item" onClick={() => handleClick(data)}>
           <div className="sb682ImageContainer">{getFolderIcon(data)}</div>
           <div className="sb818ItemText">{data.name}</div>
         </div>

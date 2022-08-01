@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DashboardItems from "../../components/dashboardItems/dashboardItems";
 import { dataType, globalType } from "../../types/interfaces";
-import emptyFolder from "../../assets/emptyFolder.svg";
+import emptyFolder from "../../assets/emptyFolder.png";
 
 import "./folderComponent.css";
 
@@ -36,6 +36,7 @@ const FolderComponent = (): JSX.Element => {
   return (
     <div className="fc881NotFoundContainer">
       <img className="fc888Image" src={emptyFolder} alt="emptyFolder" />
+      <h2>Empty folder</h2>
     </div>
   );
 };

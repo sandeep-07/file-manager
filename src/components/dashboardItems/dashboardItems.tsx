@@ -11,7 +11,7 @@ import desktopFolder from "../../assets/desktopFolder.png";
 import downloads from "../../assets/downloads.png";
 import documents from "../../assets/documents.png";
 import fileIcon from "../../assets/fileIcon.png";
-import bin from "../../assets/bin.png";
+import pictures from "../../assets/pictures.png";
 import folder from "../../assets/folder.png";
 
 import "./dashboardItems.css";
@@ -65,8 +65,8 @@ const DashboardItems = ({ items }: propTypes) => {
         return <img src={downloads} className="di019Image" alt="downloads" />;
       case "Documents":
         return <img src={documents} className="di019Image" alt="documents" />;
-      case "Recycle Bin":
-        return <img src={bin} className="di019Image" alt="bin" />;
+      case "Pictures":
+        return <img src={pictures} className="di019Image" alt="pictures" />;
 
       default:
         return <img src={folder} className="di019Image" />;
@@ -76,7 +76,7 @@ const DashboardItems = ({ items }: propTypes) => {
   const [showDetailsOfItem, setShowDetailsOfItem] = useState<dataType>(
     {} as dataType
   );
-  
+
   return (
     <div className="di204Row">
       {open && (

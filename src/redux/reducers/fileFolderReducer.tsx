@@ -95,7 +95,7 @@ const intitialState = {
       ],
     },
     {
-      name: "Recycle Bin",
+      name: "Pictures",
       id: "cfigkiedijfifahicekb",
       isFolder: true,
       isAdmin: true,
@@ -109,7 +109,7 @@ const intitialState = {
           link: "",
         },
         {
-          name: "Recycle Bin",
+          name: "Pictures",
           link: "cfigkiedijfifahicekb",
         },
       ],

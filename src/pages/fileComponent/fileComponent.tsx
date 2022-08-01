@@ -5,6 +5,7 @@ import axios from "axios";
 
 import "./fileComponent.css";
 import Loader from "./loader";
+import EndComponent from "./endComponent";
 const FileComponent = () => {
   const { query, fileId } = useParams();
 
@@ -66,9 +67,9 @@ const FileComponent = () => {
         dataLength={data.length} //This is important field to render the next data
         next={getPhotos}
         hasMore={hasMore}
-        height={"100vh"}
+        height={"90vh"}
         loader={<Loader />}
-        endMessage={<h1>The End</h1>}
+        endMessage={<EndComponent />}
       >
         <>
           <div className={modal ? "fc267Modal fc781Open" : "fc267Modal"}>
