@@ -74,22 +74,26 @@ const Navbar = ({ setIsOpen }: propTypes) => {
           ))}
         </div>
       </div>
-      <div className="nb267NavbarRightContainer">
-        <i
-          className="fa-solid fa-plus nb361OpenModalIcon"
-          onClick={() => setIsOpen(true)}
-        >
-          Add
-        </i>
-
-        <input
-          type="text"
-          className="nb452Icon nb341Input"
-          placeholder=" Search"
-          onChange={(e) => {
-            optimizedFn(e.target.value);
-          }}
-        />
+      <div className="nb267NavbarContainer">
+        <div className="nb092NavbarContainerLeft">
+          <i
+            className="fa-solid fa-plus nb361OpenModalIcon"
+            onClick={() => setIsOpen(true)}
+          >
+            Add
+          </i>
+        </div>
+        <div className="nb092NavbarContainerRight">
+          <i className="fa-solid fa-search nb773Icon"></i>
+          <input
+            type="text"
+            className="nb464InputField"
+            placeholder=" Search"
+            onChange={(e) => {
+              optimizedFn(e.target.value);
+            }}
+          />
+        </div>
       </div>
     </div>
   );
