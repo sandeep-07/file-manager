@@ -38,7 +38,7 @@ const getFolderIcon = (data: dataType) => {
 function Sidebar({ data }: propTypes) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [expand, setExpand] = React.useState(true);
   const handleClick = (data: any) => {
     if (!data.isFolder) {
       navigate(`/file/${data.name}/${data.id}`);
@@ -53,35 +53,37 @@ function Sidebar({ data }: propTypes) {
     navigate(`/${data.id}`);
   };
 
-  return (
-    <div className="">
-      {data?.isFolder === true ? (
-        <>
-          <div className="sb279Item" onClick={() => handleClick(data)}>
-            <div className="sb682ImageContainer">{getFolderIcon(data)}</div>
-            <div className="sb818ItemText">{data.name}</div>
-          </div>
-          <div className="">
-            {data.children.map((item: dataType, idx: number) => (
-              <div key={idx} style={{ marginLeft: 5 }} className="sb273Items">
-                <Sidebar data={item} />
-              </div>
-            ))}
-          </div>
-        </>
-      ) : (
-        <>
-          <div
-            className="sb279Item"
-            onClick={() => navigate(`/file/${data.name}/${data.id}`)}
-          >
-            <img className="sb828ItemImage" src={fileIcon} alt="file" />
-            <p className="sb818ItemText">{data.name} </p>
-          </div>
-        </>
-      )}
-    </div>
-  );
+  if (data.isFolder)
+    return (
+      <>
+        <div
+          className="sb279Item"
+          // onClick={() => setExpand(!expand)}
+          onClick={() => handleClick(data)}
+        >
+          <div className="sb682ImageContainer">{getFolderIcon(data)}</div>
+          <div className="sb818ItemText">{data.name}</div>
+        </div>
+        <div style={{ display: expand === true ? "block" : "none" }}>
+          {data.children.map((item: dataType, idx: number) => (
+            <div key={idx} style={{ marginLeft: 5 }} className="sb273Items">
+              <Sidebar data={item} />
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  else {
+    return (
+      <div
+        className="sb279Item"
+        onClick={() => navigate(`/file/${data.name}/${data.id}`)}
+      >
+        <img className="sb828ItemImage" src={fileIcon} alt="file" />
+        <p className="sb818ItemText">{data.name} </p>
+      </div>
+    );
+  }
 }
 
 interface propTypes {

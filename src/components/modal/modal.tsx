@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createItem } from "../../redux/actionCreators/fileFolderActionCreators";
 import { getUuid } from "../../utils/getUuid";
@@ -13,6 +13,10 @@ const Modal = ({ setIsOpen }: props) => {
   const dispatch = useDispatch();
 
   const handleCreateFolder = () => {
+    if (itemName.length === 0) {
+      alert("Please enter a name");
+      return;
+    }
     const data = {
       name: itemName,
       id: getUuid(),
@@ -27,6 +31,10 @@ const Modal = ({ setIsOpen }: props) => {
   };
 
   const handleCreateFile = () => {
+    if (itemName.length === 0) {
+      alert("Please enter a name");
+      return;
+    }
     const data = {
       name: itemName,
       id: getUuid(),
@@ -76,6 +84,7 @@ const Modal = ({ setIsOpen }: props) => {
           </div>
           <div className="ml291ModalContent">
             <input
+              autoFocus
               className="ml501ModalInput"
               placeholder="Name"
               onChange={(e) => setItemName(e.target.value)}

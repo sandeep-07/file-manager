@@ -2,6 +2,9 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DashboardItems from "../../components/dashboardItems/dashboardItems";
 import { dataType, globalType } from "../../types/interfaces";
+import emptyFolder from "../../assets/emptyFolder.svg";
+
+import "./folderComponent.css";
 
 const FolderComponent = (): JSX.Element => {
   const { folderId } = useParams();
@@ -18,7 +21,7 @@ const FolderComponent = (): JSX.Element => {
     }
   };
 
-  const data = useSelector((state:globalType) => state.fileFolder);
+  const data = useSelector((state: globalType) => state.fileFolder);
   eachRecursive(data, folderId);
   if (allFoldersHere.children.length !== 0) {
     return (
@@ -27,7 +30,11 @@ const FolderComponent = (): JSX.Element => {
       </div>
     );
   }
-  return <div>Empty folder</div>;
+  return (
+    <div className="fc881NotFoundContainer">
+      <img className="fc888Image" src={emptyFolder} alt="emptyFolder" />
+    </div>
+  );
 };
 
 export default FolderComponent;
