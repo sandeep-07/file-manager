@@ -12,6 +12,7 @@
     cursor: pointer;
     cursor: pointer;
     padding: 8px;
+    padding-left: 12px;
 }
 .sb279Item:hover{
     background-color:#e7ecf0;

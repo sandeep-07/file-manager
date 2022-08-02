@@ -3,10 +3,8 @@
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    padding-right: 3rem;
     padding-top: 1.5rem;
+    /* justify-content: space-around\; */
 
 }
 .di123Col {
@@ -49,4 +47,16 @@
 .di029ItemName {
     margin-top: 12px;
     font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 450px) {
+    .di123Col {
+        width: 90px;
+        height: 80px;
+        margin: 6px;
+    }
+    .di019Image {
+        width: 37px;
+        font-size: 0.8rem;
+    }
 }

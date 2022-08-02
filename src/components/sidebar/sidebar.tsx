@@ -63,7 +63,7 @@ function Sidebar({ data }: propTypes) {
         </div>
         <div style={{ display: expand === true ? "block" : "none" }}>
           {data.children.map((item: dataType, idx: number) => (
-            <div key={idx} style={{ marginLeft: 5 }} className="sb273Items">
+            <div key={idx} style={{ marginLeft: 9 }} className="sb273Items">
               <Sidebar data={item} />
             </div>
           ))}

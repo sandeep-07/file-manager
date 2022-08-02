@@ -31,6 +31,7 @@ const DashboardItems = ({ items }: propTypes) => {
     });
   }, [coordinates]);
 
+
   const handleDoubleClick = (name: string, id: string, isFolder: boolean) => {
     if (!isFolder) {
       navigate(`/file/${name}/${id}`);
@@ -39,6 +40,7 @@ const DashboardItems = ({ items }: propTypes) => {
     dispatch(changeFolder(id));
     navigate(`/${id}`);
   };
+
 
   const handleContextMenuClick = (
     e: React.MouseEvent<HTMLDivElement>,
@@ -50,10 +52,13 @@ const DashboardItems = ({ items }: propTypes) => {
     setOpen(true);
   };
 
+
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setOpen(false);
   };
+
+
 
   const getFolderIcon = (name: string) => {
     switch (name) {
@@ -72,10 +77,15 @@ const DashboardItems = ({ items }: propTypes) => {
         return <img src={folder} className="di019Image" />;
     }
   };
+
+
+
   const [openDetails, setOpenDetails] = useState(false);
   const [showDetailsOfItem, setShowDetailsOfItem] = useState<dataType>(
     {} as dataType
   );
+
+  
 
   return (
     <div className="di204Row">
