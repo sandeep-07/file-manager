@@ -13,8 +13,9 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 
   const currentFolder = useSelector((state: GlobalType) => state.currentFolder);
   const data = useSelector((state: GlobalType) => state.fileFolder);
-  const [str, setStr] = useState("");
+
   let getCurrentObject = {} as DataType;
+
   const eachRecursive = (obj: DataType, id: string) => {
     if (obj.id === id) {
       {
@@ -42,6 +43,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
   const handleChange = (value: string) => {
     dispatch(setQuery({ query: value, globalState: data }));
   };
+
   const debounce = (func: Function) => {
     let timer: number;
     return (...args: Array<String>) => {
@@ -81,14 +83,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
         </div>
       </div>
       <div className="nb267NavbarContainer">
-        <div className="nb092NavbarContainerLeft">
-          {/* <i
-            className="fa-solid fa-plus nb361OpenModalIcon"
-            onClick={() => setIsOpen(true)}
-          >
-            Add
-          </i> */}
-        </div>
+        <div className="nb092NavbarContainerLeft"></div>
         <div className="nb092NavbarContainerRight">
           <i className="fa-solid fa-search nb773Icon"></i>
           <input

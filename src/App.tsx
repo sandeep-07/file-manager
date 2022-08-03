@@ -41,7 +41,7 @@ const App = () => {
       <div className="app245Sidebar">
         <Sidebar data={data} />
       </div>
-      <div className="app292Dashboard">
+      <div className="app201Dashboard">
         <Navbar setIsOpen={setOpen} isOpen={open} />
 
         <Routes>

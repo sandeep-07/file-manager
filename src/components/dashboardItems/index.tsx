@@ -23,6 +23,10 @@ const DashboardItems = ({ items }: propTypes) => {
   const [itemRightClicked, setItemRightClicked] = useState<DataType>(
     {} as DataType
   );
+  const [openDetails, setOpenDetails] = useState(false);
+  const [showDetailsOfItem, setShowDetailsOfItem] = useState<DataType>(
+    {} as DataType
+  );
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -73,11 +77,6 @@ const DashboardItems = ({ items }: propTypes) => {
     }
   };
 
-  const [openDetails, setOpenDetails] = useState(false);
-  const [showDetailsOfItem, setShowDetailsOfItem] = useState<DataType>(
-    {} as DataType
-  );
-
   return (
     <div className="di204Row">
       {open && (
@@ -89,6 +88,7 @@ const DashboardItems = ({ items }: propTypes) => {
           setOpenDetails={setOpenDetails}
         />
       )}
+
       {openDetails && (
         <DetailsModal setIsOpen={setOpenDetails} item={showDetailsOfItem} />
       )}
