@@ -19,14 +19,18 @@ import "./dashboardItems.css";
 const DashboardItems = ({ items }: propTypes) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [open, setOpen] = useState(false);
+
   const [itemRightClicked, setItemRightClicked] = useState<DataType>(
     {} as DataType
   );
+
   const [openDetails, setOpenDetails] = useState(false);
   const [showDetailsOfItem, setShowDetailsOfItem] = useState<DataType>(
     {} as DataType
   );
+
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -63,12 +67,16 @@ const DashboardItems = ({ items }: propTypes) => {
     switch (name) {
       case "Home":
         return <img src={homeFolder} className="di019Image" alt="home" />;
+
       case "Desktop":
         return <img src={desktopFolder} className="di019Image" alt="desktop" />;
+
       case "Downloads":
         return <img src={downloads} className="di019Image" alt="downloads" />;
+
       case "Documents":
         return <img src={documents} className="di019Image" alt="documents" />;
+
       case "Pictures":
         return <img src={pictures} className="di019Image" alt="pictures" />;
 
@@ -92,6 +100,7 @@ const DashboardItems = ({ items }: propTypes) => {
       {openDetails && (
         <DetailsModal setIsOpen={setOpenDetails} item={showDetailsOfItem} />
       )}
+
       {items?.map((item: DataType, idx: number) => (
         <div
           onClick={handleClick}
