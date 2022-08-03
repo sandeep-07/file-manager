@@ -1,12 +1,12 @@
 .cm901Menu{
-background-color: #fff;
+background-color: var(--white);
     position: fixed;
     width: 230px;
 }
 .cm901MenuItem{
-    background-color: #fff;
+    background-color: var(--white);
     border-bottom: 1px solid #e5e5e5;
-    color: #000;
+    color: var(--black);
     display: block;
     font-size: 14px;
     font-weight: normal;
