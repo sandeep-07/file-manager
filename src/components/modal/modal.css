@@ -1,7 +1,7 @@
 /* @src/components/Modal.module.css */
 
 .ml900DarkBG {
-    background-color: rgba(55, 55, 55, 0.2);
+    background-color: var(--dark-bg);
     width: 100vw;
     height: 100vh;
     top: 50%;
@@ -25,8 +25,8 @@
 
 .ml900Modal {
     width: 390px;
-    background: white;
-    color: white;
+    background: var(--white);
+    color: var(--white);
     z-index: 10;
     border-radius: 3px;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
@@ -35,7 +35,7 @@
 
 .ml900ModalHeader {
     height: 33px;
-    background: white;
+    background: var(--white);
     overflow: hidden;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
@@ -122,8 +122,8 @@
     border-radius: 8px;
     border: none;
     font-size: 18px;
-    color: #2c3e50;
-    background: white;
+    color: var(--dark-blue);
+    background: var(--white);
     transition: all 0.25s ease;
     align-self: flex-end;
 }
@@ -133,9 +133,9 @@
     padding: 13px 9px;
     border-radius: 9px;
     border: none;
-    color: #fff;
+    color: var(--white);
     font-size: 19px;
-    background: #4ab8ff;
+    background: var(--primary);
     font-weight: lighter;
     cursor: pointer;
 }
