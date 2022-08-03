@@ -9,8 +9,8 @@ import Sidebar from "./Components/Sidebar";
 import Modal from "./Components/Modal";
 import Navbar from "./Components/Navbar/";
 import SearchComponent from "./Views/SearchComponent";
-import { changeFolder } from "./redux/actionCreators/currentFolderActionCreator";
 import { GlobalType } from "./types/interfaces";
+import { changeFolder } from "./redux/actionCreators/currentFolderActionCreator";
 
 import "./App.css";
 
