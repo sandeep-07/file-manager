@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { dataType } from "../../types/interfaces";
-import DetailsModal from "../detailsModal/detailsModal";
+import { DataType } from "../../types/interfaces";
+import DetailsModal from "../DetailsModal/DetailsModal";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
-import ContextMenu from "../contextMenu/contextMenu";
+import ContextMenu from "../ContextMenu/ContextMenu";
 import homeFolder from "../../assets/homeFolder.png";
 import desktopFolder from "../../assets/desktopFolder.png";
 import downloads from "../../assets/downloads.png";
@@ -20,8 +20,8 @@ const DashboardItems = ({ items }: propTypes) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const [itemRightClicked, setItemRightClicked] = useState<dataType>(
-    {} as dataType
+  const [itemRightClicked, setItemRightClicked] = useState<DataType>(
+    {} as DataType
   );
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
 
@@ -30,7 +30,6 @@ const DashboardItems = ({ items }: propTypes) => {
       setOpen(false);
     });
   }, [coordinates]);
-
 
   const handleDoubleClick = (name: string, id: string, isFolder: boolean) => {
     if (!isFolder) {
@@ -41,10 +40,9 @@ const DashboardItems = ({ items }: propTypes) => {
     navigate(`/${id}`);
   };
 
-
   const handleContextMenuClick = (
     e: React.MouseEvent<HTMLDivElement>,
-    item: dataType
+    item: DataType
   ) => {
     e.preventDefault();
     setCoordinates({ x: e.pageX, y: e.pageY });
@@ -52,13 +50,10 @@ const DashboardItems = ({ items }: propTypes) => {
     setOpen(true);
   };
 
-
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setOpen(false);
   };
-
-
 
   const getFolderIcon = (name: string) => {
     switch (name) {
@@ -78,14 +73,10 @@ const DashboardItems = ({ items }: propTypes) => {
     }
   };
 
-
-
   const [openDetails, setOpenDetails] = useState(false);
-  const [showDetailsOfItem, setShowDetailsOfItem] = useState<dataType>(
-    {} as dataType
+  const [showDetailsOfItem, setShowDetailsOfItem] = useState<DataType>(
+    {} as DataType
   );
-
-  
 
   return (
     <div className="di204Row">
@@ -101,7 +92,7 @@ const DashboardItems = ({ items }: propTypes) => {
       {openDetails && (
         <DetailsModal setIsOpen={setOpenDetails} item={showDetailsOfItem} />
       )}
-      {items?.map((item: dataType, idx: number) => (
+      {items?.map((item: DataType, idx: number) => (
         <div
           onClick={handleClick}
           onContextMenu={(e) => handleContextMenuClick(e, item)}
@@ -133,7 +124,7 @@ const DashboardItems = ({ items }: propTypes) => {
 };
 
 type propTypes = {
-  items: dataType[];
+  items: DataType[];
 };
 
 export default DashboardItems;

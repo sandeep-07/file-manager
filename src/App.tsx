@@ -2,16 +2,15 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
-import FileComponent from "./pages/fileComponent/fileComponent";
-import HomePage from "./pages/homePage/homePage";
-import FolderComponent from "./pages/folderComponent/folderComponent";
-import Sidebar from "./components/sidebar/sidebar";
-import Modal from "./components/modal/modal";
-import Navbar from "./components/navbar/navbar";
-import SearchComponent from "./pages/searchComponent/searchComponent";
+import FileComponent from "./Pages/FileComponent/FileComponent";
+import HomePage from "./Pages/HomePage/HomePage";
+import FolderComponent from "./Pages/FolderComponent/FolderComponent";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Modal from "./Components/Modal/Modal";
+import Navbar from "./Components/Navbar/Navbar";
+import SearchComponent from "./Pages/SearchComponent/SearchComponent";
 import { changeFolder } from "./redux/actionCreators/currentFolderActionCreator";
-import { globalType } from "./types/interfaces";
-
+import { GlobalType } from "./types/interfaces";
 
 import "./App.css";
 
@@ -19,11 +18,11 @@ const App = () => {
   const navigatge = useNavigate();
   const dispatch = useDispatch();
 
-  const data = useSelector((state: globalType) => state.fileFolder);
+  const data = useSelector((state: GlobalType) => state.fileFolder);
   const [open, setOpen] = useState(false);
 
   const { rootFolderDetails, searchQuery } = useSelector(
-    (state: globalType) => ({
+    (state: GlobalType) => ({
       rootFolderDetails: state.fileFolder,
       searchQuery: state?.search?.query,
     })

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import DashboardItems from "../../components/dashboardItems/dashboardItems";
+import DashboardItems from "../../Components/DashboardItems/DashboardItems";
 import empty from "../../assets/empty.jpg";
 
 import "./searchComponent.css";

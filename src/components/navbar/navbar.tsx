@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { dataType, globalType } from "../../types/interfaces";
+import { DataType, GlobalType } from "../../types/interfaces";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
 import { setQuery } from "../../redux/actionCreators/searchActionCreator";
 import "./navbar.css";
@@ -11,11 +11,11 @@ const Navbar = ({ setIsOpen }: propTypes) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const currentFolder = useSelector((state: globalType) => state.currentFolder);
-  const data = useSelector((state: globalType) => state.fileFolder);
+  const currentFolder = useSelector((state: GlobalType) => state.currentFolder);
+  const data = useSelector((state: GlobalType) => state.fileFolder);
   const [str, setStr] = useState("");
-  let getCurrentObject = {} as dataType;
-  const eachRecursive = (obj: dataType, id: string) => {
+  let getCurrentObject = {} as DataType;
+  const eachRecursive = (obj: DataType, id: string) => {
     if (obj.id === id) {
       {
         getCurrentObject = obj;
@@ -72,16 +72,22 @@ const Navbar = ({ setIsOpen }: propTypes) => {
               {` `}
             </span>
           ))}
-        </div>
-      </div>
-      <div className="nb267NavbarContainer">
-        <div className="nb092NavbarContainerLeft">
           <i
             className="fa-solid fa-plus nb361OpenModalIcon"
             onClick={() => setIsOpen(true)}
           >
             Add
           </i>
+        </div>
+      </div>
+      <div className="nb267NavbarContainer">
+        <div className="nb092NavbarContainerLeft">
+          {/* <i
+            className="fa-solid fa-plus nb361OpenModalIcon"
+            onClick={() => setIsOpen(true)}
+          >
+            Add
+          </i> */}
         </div>
         <div className="nb092NavbarContainerRight">
           <i className="fa-solid fa-search nb773Icon"></i>

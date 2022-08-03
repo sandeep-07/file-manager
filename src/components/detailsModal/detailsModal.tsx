@@ -1,4 +1,4 @@
-import { dataType } from "../../types/interfaces";
+import { DataType } from "../../types/interfaces";
 import "./detailsModal.css";
 
 const DetailsModal = ({ setIsOpen, item }: propTypes) => {
@@ -64,7 +64,7 @@ const DetailsModal = ({ setIsOpen, item }: propTypes) => {
 
 type propTypes = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  item: dataType;
+  item: DataType;
 };
 
 export default DetailsModal;

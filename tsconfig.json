@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/components/sidebar","src/custom.d.ts"],
+  "include": ["src", "src/Components/Sidebar","src/custom.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

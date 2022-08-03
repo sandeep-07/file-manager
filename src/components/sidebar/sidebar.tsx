@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { dataType } from "../../types/interfaces";
+import { DataType } from "../../types/interfaces";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
 import homeFolder from "../../assets/homeFolder.png";
 import desktopFolder from "../../assets/desktopFolder.png";
@@ -15,7 +15,7 @@ import pictures from "../../assets/pictures.png";
 
 import "./sidebar.css";
 
-const getFolderIcon = (data: dataType) => {
+const getFolderIcon = (data: DataType) => {
   const { name } = data;
   switch (name) {
     case "Home":
@@ -40,7 +40,7 @@ function Sidebar({ data }: propTypes) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [expand, setExpand] = React.useState(true);
-  const handleClick = (data: dataType) => {
+  const handleClick = (data: DataType) => {
     if (!data.isFolder) {
       navigate(`/file/${data.name}/${data.id}`);
       return;
@@ -62,7 +62,7 @@ function Sidebar({ data }: propTypes) {
           <div className="sb818ItemText">{data.name}</div>
         </div>
         <div style={{ display: expand === true ? "block" : "none" }}>
-          {data.children.map((item: dataType, idx: number) => (
+          {data.children.map((item: DataType, idx: number) => (
             <div key={idx} style={{ marginLeft: 9 }} className="sb273Items">
               <Sidebar data={item} />
             </div>
@@ -84,7 +84,7 @@ function Sidebar({ data }: propTypes) {
 }
 
 interface propTypes {
-  data: dataType;
+  data: DataType;
 }
 
 export default Sidebar;

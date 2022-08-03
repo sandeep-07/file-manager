@@ -1,5 +1,5 @@
-import DashboardItems from "../../components/dashboardItems/dashboardItems";
-import { dataType } from "../../types/interfaces";
+import DashboardItems from "../../Components/DashboardItems/DashboardItems";
+import { DataType } from "../../types/interfaces";
 
 const HomePage = ({ children }: any) => {
   return (

@@ -1,4 +1,4 @@
-export interface dataType {
+export interface DataType {
     name: string;
     id: string;
     isFolder: boolean;
@@ -7,17 +7,17 @@ export interface dataType {
     createdAt: string,
     creator: string,
     path: [{ name: string, id: string }];
-    children: dataType[];
+    children: DataType[];
 }
 
-interface searchType{
+interface SearchType{
     query: string;
-    searchResult: dataType[];
+    searchResult: DataType[];
 }
 
-export interface globalType{
-    fileFolder: dataType;
+export interface GlobalType{
+    fileFolder: DataType;
     currentFolder: string;
-    search:searchType
+    search:SearchType
     
 }

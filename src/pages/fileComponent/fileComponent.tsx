@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
+import errorAPI from "../../assets/errorAPI.png";
+import Loader from "./Loader";
+import EndComponent from "./EndComponent";
 import "./fileComponent.css";
-import Loader from "./loader";
-import EndComponent from "./endComponent";
+
 const FileComponent = () => {
   const { query, fileId } = useParams();
 
@@ -14,8 +18,22 @@ const FileComponent = () => {
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const [error, setError] = useState("");
+  const [loadImage, setLoadImage] = useState(false);
 
   const CLIENT_ID = "XbAz5Y3y1lpBuqdo4jkakWrKZGkaYHFwGqbbZTAlzW0";
+
+  const [loaded, setLoaded] = useState(false);
+  const ref = useRef<any>();
+
+  const onLoad = () => {
+    setLoaded(true);
+  };
+
+  useEffect(() => {
+    if (ref.current && ref.current.complete) {
+      onLoad();
+    }
+  });
 
   const getPhotos = async () => {
     setError("");
@@ -38,7 +56,7 @@ const FileComponent = () => {
         }
       })
       .catch((err) => {
-        setError(err.response.data);
+        setError(err.message);
       });
   };
 
@@ -80,14 +98,35 @@ const FileComponent = () => {
             ></i>
           </div>
           <div className="fc901Gallery">
+            {/* <div className="fc999Image">
+              <Skeleton width={"100%"} height={"100%"} />
+            </div> */}
             {data.map((item: any, index: number) => {
+              let loadHuiImage = false;
               return (
                 <div
                   className="fc018Pics"
                   key={index}
                   onClick={() => getImg(item)}
                 >
-                  <img src={item} alt="" className="fc999Image" />
+                  <>
+                    {/* <img
+                      src={item}
+                      alt=""
+                      className="fc999Image"
+                      onLoad={() => {
+                        console.log(`Load hui ${index} image`);
+                      }}
+                    /> */}
+                    <img
+                      className="fc999Image"
+                      ref={ref}
+                      onLoad={onLoad}
+                      src={item}
+                      alt=""
+                    />
+                    {/* {(loaded===true)? ():()} */}
+                  </>
                 </div>
               );
             })}
@@ -98,6 +137,7 @@ const FileComponent = () => {
   } else {
     return (
       <div>
+        <img src={errorAPI} className="" />
         <h2>{error}</h2>
       </div>
     );

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
 
 import { deleteItem } from "../../redux/actionCreators/fileFolderActionCreators";
-import { dataType } from "../../types/interfaces";
+import { DataType } from "../../types/interfaces";
 
 import "./contextMenu.css";
 
@@ -61,9 +61,9 @@ const ContextMenu = ({
 
 type propTypes = {
   cordinates: { x: number; y: number };
-  item: dataType;
+  item: DataType;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowDetailsOfItem: React.Dispatch<React.SetStateAction<dataType>>;
+  setShowDetailsOfItem: React.Dispatch<React.SetStateAction<DataType>>;
   setOpenDetails: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
