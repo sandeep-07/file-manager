@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import DashboardItems from "../../Components/DashboardItems/DashboardItems";
+import DashboardItems from "../../Components/DashboardItems";
 import { DataType, GlobalType } from "../../types/interfaces";
 import emptyFolder from "../../assets/emptyFolder.png";
 

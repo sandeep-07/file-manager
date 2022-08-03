@@ -6,8 +6,8 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import errorAPI from "../../assets/errorAPI.png";
-import Loader from "./Loader";
-import EndComponent from "./EndComponent";
+import Loader from "./LoaderComponent/Loader";
+import EndComponent from "./EndComponent/EndComponent";
 import "./fileComponent.css";
 
 const FileComponent = () => {

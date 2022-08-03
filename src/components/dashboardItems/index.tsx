@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { DataType } from "../../types/interfaces";
-import DetailsModal from "../DetailsModal/DetailsModal";
+import DetailsModal from "../DetailsModal";
 import { changeFolder } from "../../redux/actionCreators/currentFolderActionCreator";
-import ContextMenu from "../ContextMenu/ContextMenu";
+import ContextMenu from "../ContextMenu";
 import homeFolder from "../../assets/homeFolder.png";
 import desktopFolder from "../../assets/desktopFolder.png";
 import downloads from "../../assets/downloads.png";

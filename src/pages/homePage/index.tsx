@@ -1,4 +1,4 @@
-import DashboardItems from "../../Components/DashboardItems/DashboardItems";
+import DashboardItems from "../../Components/DashboardItems";
 import { DataType } from "../../types/interfaces";
 
 const HomePage = ({ children }: any) => {

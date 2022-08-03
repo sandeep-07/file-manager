@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
-import FileComponent from "./Pages/FileComponent/FileComponent";
-import HomePage from "./Pages/HomePage/HomePage";
-import FolderComponent from "./Pages/FolderComponent/FolderComponent";
-import Sidebar from "./Components/Sidebar/Sidebar";
-import Modal from "./Components/Modal/Modal";
-import Navbar from "./Components/Navbar/Navbar";
-import SearchComponent from "./Pages/SearchComponent/SearchComponent";
+import FileComponent from "./Pages/FileComponent";
+import HomePage from "./Pages/HomePage";
+import FolderComponent from "./Pages/FolderComponent";
+import Sidebar from "./Components/Sidebar";
+import Modal from "./Components/Modal";
+import Navbar from "./Components/Navbar";
+import SearchComponent from "./Pages/SearchComponent";
 import { changeFolder } from "./redux/actionCreators/currentFolderActionCreator";
 import { GlobalType } from "./types/interfaces";
 
