@@ -8,6 +8,7 @@ import "./folderComponent.css";
 
 const FolderComponent = (): JSX.Element => {
   const { folderId } = useParams();
+
   let allFoldersHere: DataType = {} as DataType;
 
   const eachRecursive = (obj: DataType, id: string | undefined) => {
@@ -17,6 +18,7 @@ const FolderComponent = (): JSX.Element => {
         return obj;
       }
     }
+
     for (var k in obj.children) {
       eachRecursive(obj.children[k], id);
     }
@@ -33,9 +35,10 @@ const FolderComponent = (): JSX.Element => {
       </div>
     );
   }
+
   return (
     <div className="fc881NotFoundContainer">
-      <img className="fc888Image" src={emptyFolder} alt="emptyFolder" />
+      <img className="fc881Image" src={emptyFolder} alt="emptyFolder" />
       <h2>Empty folder</h2>
     </div>
   );

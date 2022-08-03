@@ -10,6 +10,8 @@ import Loader from "./LoaderComponent/Loader";
 import EndComponent from "./EndComponent/EndComponent";
 import "./fileComponent.css";
 
+const CLIENT_ID = "XbAz5Y3y1lpBuqdo4jkakWrKZGkaYHFwGqbbZTAlzW0";
+
 const FileComponent = () => {
   const { query, fileId } = useParams();
 
@@ -19,21 +21,7 @@ const FileComponent = () => {
   const [page, setPage] = useState(1);
   const [error, setError] = useState("");
   const [loadImage, setLoadImage] = useState(false);
-
-  const CLIENT_ID = "XbAz5Y3y1lpBuqdo4jkakWrKZGkaYHFwGqbbZTAlzW0";
-
   const [loaded, setLoaded] = useState(false);
-  const ref = useRef<any>();
-
-  const onLoad = () => {
-    setLoaded(true);
-  };
-
-  useEffect(() => {
-    if (ref.current && ref.current.complete) {
-      onLoad();
-    }
-  });
 
   const getPhotos = async () => {
     setError("");
@@ -90,43 +78,22 @@ const FileComponent = () => {
         endMessage={<EndComponent />}
       >
         <>
-          <div className={modal ? "fc267Modal fc781Open" : "fc267Modal"}>
+          <div className={modal ? "fc267Modal fc267Open" : "fc267Modal"}>
             <img src={tempImage} alt="modal" />
             <i
-              className="fa-solid fa-xmark fc891CloseIcon"
+              className="fa-solid fa-xmark fc267CloseIcon"
               onClick={() => setModal(false)}
             ></i>
           </div>
-          <div className="fc901Gallery">
-            {/* <div className="fc999Image">
-              <Skeleton width={"100%"} height={"100%"} />
-            </div> */}
+          <div className="fc267Gallery">
             {data.map((item: any, index: number) => {
-              let loadHuiImage = false;
               return (
                 <div
-                  className="fc018Pics"
+                  className="fc267Pics"
                   key={index}
                   onClick={() => getImg(item)}
                 >
-                  <>
-                    {/* <img
-                      src={item}
-                      alt=""
-                      className="fc999Image"
-                      onLoad={() => {
-                        console.log(`Load hui ${index} image`);
-                      }}
-                    /> */}
-                    <img
-                      className="fc999Image"
-                      ref={ref}
-                      onLoad={onLoad}
-                      src={item}
-                      alt=""
-                    />
-                    {/* {(loaded===true)? ():()} */}
-                  </>
+                  <img src={item} alt="" className="fc267Image"/>
                 </div>
               );
             })}

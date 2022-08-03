@@ -19,6 +19,7 @@ const Modal = ({ setIsOpen }: props) => {
       alert("Please enter a name");
       return;
     }
+
     const data = {
       name: itemName,
       id: getUuid(),
@@ -28,6 +29,7 @@ const Modal = ({ setIsOpen }: props) => {
       creator: creatorName,
       createdAt: new Date().toLocaleDateString(),
     };
+
     dispatch(createItem({ createInside: createInside, item: data }));
     setIsOpen(false);
   };
@@ -37,6 +39,7 @@ const Modal = ({ setIsOpen }: props) => {
       alert("Please enter a name");
       return;
     }
+
     const data = {
       name: itemName,
       id: getUuid(),
@@ -46,72 +49,74 @@ const Modal = ({ setIsOpen }: props) => {
       type: type,
       createdAt: new Date().toLocaleDateString(),
     };
+
     dispatch(createItem({ createInside: createInside, item: data }));
+
     setIsOpen(false);
   };
 
   return (
     <>
       <div className="ml900DarkBG" onClick={() => setIsOpen(false)} />
-      <div className="ml019Centered">
-        <div className="ml287Modal">
-          <div className=".ml100ModalHeader">
-            <div className="ml222CloseBtn">
+      <div className="ml900Centered">
+        <div className="ml900Modal">
+          <div className=".ml900ModalHeader">
+            <div className="ml900CloseBtn">
               <button
-                className="ml019CloseBtn"
+                className="ml900CloseBtn"
                 onClick={() => setIsOpen(false)}
               >
                 <i className="fa-solid fa-xmark"></i>
               </button>
             </div>
-            <h2 className="ml001Heading">Create New</h2>
+            <h2 className="ml900Heading">Create New</h2>
           </div>
-          <div className="ml180FileOrFolder">
+          <div className="ml900FileOrFolder">
             <span
               onClick={() => setShouldCreateFile(0)}
-              className={`ml094Btn ml291FolderButton ${
-                shouldCreateFile == 0 ? "ml129ActiveBtn" : ""
+              className={`ml900Btn ml900FolderButton ${
+                shouldCreateFile == 0 ? "ml900ActiveBtn" : ""
               }`}
             >
               Folder
             </span>
             <span
               onClick={() => setShouldCreateFile(1)}
-              className={`ml094Btn ml294FileButton ${
-                shouldCreateFile == 1 ? "ml129ActiveBtn" : ""
+              className={`ml900Btn ml900FileButton ${
+                shouldCreateFile == 1 ? "ml900ActiveBtn" : ""
               }`}
             >
               File
             </span>
           </div>
-          <div className="ml291ModalContent">
+          <div className="ml900ModalContent">
             <input
               autoFocus
-              className="ml501ModalInput"
+              className="ml900ModalInput"
               placeholder="Name"
               onChange={(e) => setItemName(e.target.value)}
             />
             <br />
             <input
-              className="ml501ModalInput"
+              className="ml900ModalInput"
               placeholder="Type"
               onChange={(e) => setType(e.target.value)}
             />
             <br />
             <input
-              className="ml501ModalInput"
+              className="ml900ModalInput"
               placeholder="Creator"
               onChange={(e) => setCreatorName(e.target.value)}
             />
           </div>
-          <div className="ml481ModalActions">
-            <div className="ml978ActionsContainer">
+          <div className="ml900ModalActions">
+            <div className="ml900ActionsContainer">
               {shouldCreateFile == 1 ? (
-                <button onClick={handleCreateFile} className="ml012createBtn">
+                <button onClick={handleCreateFile} className="ml900createBtn">
                   Create File
                 </button>
               ) : (
-                <button onClick={handleCreateFolder} className="ml012createBtn">
+                <button onClick={handleCreateFolder} className="ml900createBtn">
                   Create Folder
                 </button>
               )}

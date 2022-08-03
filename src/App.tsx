@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
-import FileComponent from "./Pages/FileComponent";
-import HomePage from "./Pages/HomePage";
-import FolderComponent from "./Pages/FolderComponent";
+import FileComponent from "./Views/FileComponent";
+import HomePage from "./Views/HomeComponent";
+import FolderComponent from "./Views/FolderComponent";
 import Sidebar from "./Components/Sidebar";
 import Modal from "./Components/Modal";
-import Navbar from "./Components/Navbar";
-import SearchComponent from "./Pages/SearchComponent";
+import Navbar from "./Components/Navbar/";
+import SearchComponent from "./Views/SearchComponent";
 import { changeFolder } from "./redux/actionCreators/currentFolderActionCreator";
 import { GlobalType } from "./types/interfaces";
 
@@ -38,7 +38,7 @@ const App = () => {
   return (
     <div className="app201AppComp">
       {open && <Modal setIsOpen={setOpen} />}
-      <div className="app245Sidebar">
+      <div className="app201Sidebar">
         <Sidebar data={data} />
       </div>
       <div className="app201Dashboard">
@@ -50,7 +50,7 @@ const App = () => {
           ) : (
             <Route
               path="/"
-              element={<HomePage children={rootFolderDetails.children} />}
+              element={<HomePage filesAndFolder={rootFolderDetails.children} />}
             />
           )}
 

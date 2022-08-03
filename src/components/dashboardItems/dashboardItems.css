@@ -1,4 +1,4 @@
-.di204Row {
+.di019Row {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -7,7 +7,7 @@
     /* justify-content: space-around\; */
 
 }
-.di123Col {
+.di019Col {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +24,7 @@
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
-.di123Col:hover {
+.di019Col:hover {
     background-color: aliceblue;
 }
 
@@ -32,7 +32,7 @@
     width: 50px;
 }
 
-.di039ColContainer{
+.di019ColContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -44,13 +44,13 @@
     font-size: 4rem;
     color: #4ab8ff;
 }
-.di029ItemName {
+.di019ItemName {
     margin-top: 12px;
     font-size: 0.9rem;
 }
 
 @media only screen and (max-width: 450px) {
-    .di123Col {
+    .di019Col {
         width: 90px;
         height: 80px;
         margin: 6px;

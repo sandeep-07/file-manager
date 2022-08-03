@@ -46,13 +46,13 @@ const ContextMenu = ({
       className="cm901Menu"
       onClick={() => setOpen(false)}
     >
-      <div className="cm241MenuItem" onClick={handleOpen}>
+      <div className="cm901MenuItem" onClick={handleOpen}>
         Open
       </div>
-      <div className="cm241MenuItem" onClick={handleShowDetails}>
+      <div className="cm901MenuItem" onClick={handleShowDetails}>
         Show Details
       </div>
-      <div onClick={handleDeleteClick} className="cm241MenuItem">
+      <div onClick={handleDeleteClick} className="cm901MenuItem">
         Delete
       </div>
     </div>

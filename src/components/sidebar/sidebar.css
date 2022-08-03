@@ -1,4 +1,4 @@
-.sb712Sidebar{
+.sb279Sidebar{
     position: fixed;
     height: 100%;
     width: 18%;
@@ -18,12 +18,12 @@
     background-color:#e7ecf0;
 }
 
-.sb828ItemImage{
+.sb279ItemImage{
     width: 19px;
     margin-top: 3px;
 }
 
-.sb818ItemText{
+.sb279ItemText{
     margin-left: 10px;
     color: #000;
     font-size: 14px;

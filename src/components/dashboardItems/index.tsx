@@ -78,7 +78,7 @@ const DashboardItems = ({ items }: propTypes) => {
   };
 
   return (
-    <div className="di204Row">
+    <div className="di019Row">
       {open && (
         <ContextMenu
           setOpen={setOpen}
@@ -100,21 +100,21 @@ const DashboardItems = ({ items }: propTypes) => {
             handleDoubleClick(item.name, item.id, item.isFolder)
           }
           key={idx}
-          className="di123Col"
+          className="di019Col"
         >
           {item.isFolder ? (
-            <div className="di039ColContainer">
+            <div className="di019ColContainer">
               {item.isAdmin === true ? (
                 getFolderIcon(item.name)
               ) : (
                 <img src={folder} className="di019Image" />
               )}
-              <div className="di029ItemName">{item.name}</div>
+              <div className="di019ItemName">{item.name}</div>
             </div>
           ) : (
             <div className="di039ColContainer">
               <img className="di019Image" src={fileIcon} />
-              <div className="di029ItemName">{item.name}</div>
+              <div className="di019ItemName">{item.name}</div>
             </div>
           )}
         </div>

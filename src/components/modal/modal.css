@@ -10,7 +10,7 @@
     position: absolute;
 }
 
-.ml019Centered {
+.ml900Centered {
     position: absolute;
     z-index: 100;
     display: flex;
@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-.ml287Modal {
+.ml900Modal {
     width: 390px;
     background: white;
     color: white;
@@ -33,7 +33,7 @@
     padding-bottom: 50px;
 }
 
-.ml100ModalHeader {
+.ml900ModalHeader {
     height: 33px;
     background: white;
     overflow: hidden;
@@ -41,7 +41,7 @@
     border-top-right-radius: 16px;
 }
 
-.ml001Heading {
+.ml900Heading {
     margin: 0;
     color: #2c3e50;
     font-weight: 900;
@@ -49,42 +49,42 @@
     text-align: center;
 }
 
-.ml180FileOrFolder {
+.ml900FileOrFolder {
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
     margin-top: 15px;
 }
 
-.ml094Btn {
+.ml900Btn {
     border: 1px solid #d4d4d4;
     color: #d4d4d4;
     padding: 8px 23px;
     cursor: pointer;
 }
 
-.ml291FolderButton {
+.ml900FolderButton {
     border-radius: 10px 0px 0px 10px;
 }
 
-.ml294FileButton {
+.ml900FileButton {
     border-radius: 0px 10px 10px 0;
 }
 
-.ml129ActiveBtn {
+.ml900ActiveBtn {
     background-color: #4ab8ff;
     color: white;
     border: none;
 }
 
-.ml291ModalContent {
+.ml900ModalContent {
     padding: 10px;
     font-size: 14px;
     color: #2c3e50;
     text-align: center;
 }
 
-.ml501ModalInput {
+.ml900ModalInput {
     padding: 15px 10px;
     width: 78%;
     border: thin solid #d4d4d4;
@@ -100,22 +100,22 @@
     color: rgb(206, 206, 206);
 }
 
-.ml481ModalActions {
+.ml900ModalActions {
     bottom: 2px;
     margin-bottom: 10px;
     width: 100%;
 }
 
-.ml978ActionsContainer {
+.ml900ActionsContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.ml222CloseBtn {
+.ml900CloseBtn {
     display: flex;
     justify-content: flex-end;
 }
-.ml019CloseBtn {
+.ml900CloseBtn {
     cursor: pointer;
     font-weight: 500;
     padding: 4px 8px;
@@ -128,7 +128,7 @@
     align-self: flex-end;
 }
 
-.ml012createBtn {
+.ml900createBtn {
     width: 74%;
     padding: 13px 9px;
     border-radius: 9px;
@@ -140,7 +140,7 @@
     cursor: pointer;
 }
 
-.ml012createBtn:hover {
+.ml900createBtn:hover {
     box-shadow: 0 5px 5px -5px rgba(73, 73, 73, 0.6);
     transform: translateY(-1px);
 }

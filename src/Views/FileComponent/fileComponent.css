@@ -1,4 +1,4 @@
-.fc901Gallery {
+.fc267Gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -6,7 +6,7 @@
     margin: 0 auto;
 }
 
-.fc901Gallery .fc018Pics {
+.fc267Gallery .fc267Pics {
     -webkit-transition: all 350ms ease;
     transition: all 350ms ease;
     cursor: pointer;
@@ -14,17 +14,17 @@
 }
 
 
-.fc901Gallery .fc018Pics:hover {
+.fc267Gallery .fc267Pics:hover {
     filter: opacity(0.8);
 }
 
 @media (max-width:990px) {
-    .fc901Gallery {
+    .fc267Gallery {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 @media (max-width:480px) {
-    .fc901Gallery {
+    .fc267Gallery {
         grid-template-columns: repeat(1, 1fr);
         -webkit-column-width: 100%;
         -moz-column-width: 100%;
@@ -47,9 +47,9 @@
     opacity: 0;
     transform: scale(0);
     overflow: hidden;
-    z-index: 999;
+    z-index: 267;
 }
-.fc267Modal.fc781Open{
+.fc267Modal.fc267Open{
     visibility: visible;
     opacity: 1;
     transform: scale(1);
@@ -68,7 +68,7 @@
 }
 
 
-.fc891CloseIcon {
+.fc267CloseIcon {
     position: fixed;
     top: 10px;
     right: 10px;
@@ -86,7 +86,7 @@
     gap: 10px;
 }
 
-.fc999Image{
+.fc267Image{
     width: 100%;
     height: 250px;
     object-fit: cover;

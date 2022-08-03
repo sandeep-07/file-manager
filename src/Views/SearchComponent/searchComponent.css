@@ -1,11 +1,11 @@
-.sc910NotFoundContainer{
+.sc029NotFoundContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transform: translateY(20%);
 }
-.sc929NotFoundImage{
+.sc029NotFoundImage{
     width: 100%;
     height:400px;
     object-fit: contain;

@@ -27,6 +27,7 @@ const Navbar = ({ setIsOpen }: propTypes) => {
       eachRecursive(obj.children[k], id);
     }
   };
+
   eachRecursive(data, currentFolder);
 
   const handleClick = (link: string) => {
@@ -46,9 +47,12 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 
   const debounce = (func: Function) => {
     let timer: number;
+
     return (...args: Array<String>) => {
       const context: undefined = this;
-      if (timer) clearTimeout(timer);
+      if (timer) {
+        clearTimeout(timer);
+      }
       timer = setTimeout(() => {
         func.apply(context, args);
       }, 500);
@@ -59,36 +63,44 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 
   return (
     <div className="nb719Navbar">
-      <div className="nb527NavbarLeftContainer">
-        <div className="nb192Breadcrumb">
-          {getCurrentObject?.path?.map((item: any, index: number) => (
-            <span
-              key={index}
-              className={`nb172BreadcrumbItem ${
-                index === getCurrentObject.path.length - 1 ? "nb278active" : ""
-              }`}
-              onClick={() => handleClick(item.link)}
+      <div className="nb719NavbarLeftContainer">
+        <div className="nb719Breadcrumb">
+          <div >
+            {getCurrentObject?.path?.map((item: any, index: number) => (
+              <span
+                key={index}
+                className={`nb719BreadcrumbItem ${
+                  index === getCurrentObject.path.length - 1
+                    ? "nb719active"
+                    : ""
+                }`}
+                onClick={() => handleClick(item.link)}
+              >
+                {index === getCurrentObject.path.length - 1 ? (
+                  <span>{item.name}</span>
+                ) : (
+                  <span>{`${item.name}  >  `}</span>
+                )}
+              </span>
+            ))}
+          </div>
+          <div >
+            <i
+              className="fa-solid fa-plus nb719OpenModalIcon"
+              onClick={() => setIsOpen(true)}
             >
-              {item.name} {` `}
-              {`>  `}
-              {` `}
-            </span>
-          ))}
-          <i
-            className="fa-solid fa-plus nb361OpenModalIcon"
-            onClick={() => setIsOpen(true)}
-          >
-            Add
-          </i>
+              Add
+            </i>
+          </div>
         </div>
       </div>
-      <div className="nb267NavbarContainer">
-        <div className="nb092NavbarContainerLeft"></div>
-        <div className="nb092NavbarContainerRight">
-          <i className="fa-solid fa-search nb773Icon"></i>
+      <div className="nb719NavbarContainer">
+        <div className="nb719NavbarContainerLeft"></div>
+        <div className="nb719NavbarContainerRight">
+          <i className="fa-solid fa-search nb719Icon"></i>
           <input
             type="text"
-            className="nb464InputField"
+            className="nb719InputField"
             placeholder=" Search"
             onChange={(e) => {
               optimizedFn(e.target.value);
@@ -103,11 +115,6 @@ const Navbar = ({ setIsOpen }: propTypes) => {
 type propTypes = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen: boolean;
-};
-
-type pathType = {
-  name: string;
-  link: string;
 };
 
 export default Navbar;
